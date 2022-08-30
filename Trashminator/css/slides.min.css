@@ -3,7 +3,7 @@
 
 .button,
 html {
-    -webkit-backface-visibility: hidden
+    -webkit-backface-visibility: hidden;
 }
 
 #logo{
@@ -13,6 +13,21 @@ html {
     position: absolute;
     top: 30%;
 }
+
+.restaurant_cards>.dining_card {
+  --padding: 1rem;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(133, 133, 133);
+  border-radius: 0.5rem;
+  font-size: 20px;
+  max-width: 850px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: 5%;
+  box-shadow: 0 2px 5px 0;
+  border: none;
+}
+
 
 .dialog,
 body,
@@ -1969,25 +1984,25 @@ html:not(.mobile) .slide.video .background[style] {
 
 @media (max-width:768px) {
     .showForPhablet {
-        display: block !important
+        display: block !important;
     }
 
     .showForPhabletInline {
-        display: inline !important
+        display: inline !important;
     }
 }
 
 @media (max-width:435px) {
     .hideForPhone {
-        display: none !important
+        display: none !important;
     }
 
     .showForPhone {
-        display: block !important
+        display: block !important;
     }
 
     .showForPhoneInline {
-        display: inline !important
+        display: inline !important;
     }
 }
 
@@ -2367,12 +2382,12 @@ html.mobile .showForMobileInline {
 
 .popup,
 .side {
-    -webkit-transform: translate3d(0, 0, 0)
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 .nextSlide:hover,
 .prevSlide:hover {
-    transition: .15s
+    transition: .15s;
 }
 
 .nextSlide:active,
@@ -7107,6 +7122,11 @@ html:not(.page-loaded) .dialog {
     .button.play.button-7 {
         display: block;
         margin: 30px auto
+    }
+    #logo {
+        font-size: 1.5em;
+        position: absolute;
+        top: 35%;
     }
 }
 
