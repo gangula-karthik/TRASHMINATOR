@@ -1,4 +1,4 @@
-# Codeoverflow_nyp
+# NYP CODEOVERFLOW 2022
 Team 4 submission for NYP codeoverflow hackathon 2022
 
 Team members include: 
