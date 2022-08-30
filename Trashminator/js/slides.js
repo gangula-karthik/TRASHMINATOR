@@ -1,20 +1,4 @@
-/*  
 
-   _____ _       _                 _  _____ 
-  / ___/| (*)   | |               | |/ ___/  v 4.0.5
- | (___ | |_  __| | ___ ____      | | (___  
-  \___ \| | |/ _` |/ _ / __/  _   | |\___ \ 
-  ____) | | | (_| |  __\__ \ | |__| |____) |
- /_____/|_|_|\__,_|\___/___/  \____//_____/ 
-                                            
-                                            
-This file contains scripts required for the proper functionality and display
-of your Slides Project. It also requires plugins.js and jquery-3.3.1 to run this script properly.
-
-Distributed by https://freehtml5.co/
-Original design by https://designmodo.com/slides/
-
-*/
 
 window.inAction = 1;
 window.allowSlide = 1;
@@ -49,61 +33,61 @@ $(window).on('load', function(){
 
 //On DOM ready
 $(document).ready(function() { "use strict";
-  var $body = $('body'); 
-  
+  var $body = $('body');
+
   //add window a trigger
   setTimeout(function(){
     $(window).trigger('ready');
   },1);
-  
+
   //Redraw
   $body.hide().show(0);
-  
+
   //Detect mode
   window.isScroll = $body.hasClass('scroll');
   window.isSimplifiedMobile = $body.hasClass('simplifiedMobile');
   if (window.isScroll || window.isSimplifiedMobile && window.isMobile) { $html.addClass('scrollable'); }
-  
+
   $html.addClass('page-ready');
 
   //Set speed
   if ($body.hasClass('fast')){
-    //fast 
-    window.slideSpeed = 700;  
+    //fast
+    window.slideSpeed = 700;
     window.cleanupDelay = 1200;
     window.effectSpeed = 800;
     window.scrollSpeed = 0.35;
     window.effectOffset = 400;
   } else if ($body.hasClass('slow')){
     //slow
-    window.slideSpeed = 1400;  
+    window.slideSpeed = 1400;
     window.cleanupDelay = 2000;
     window.effectSpeed = 1400;
     window.effectOffset = 400;
     window.scrollSpeed = .8;
     window.effectOffset = 600;
   }
-  
+
   //How many stages?
   window.stage = 1;
   window.stages = $('.slide').length;
-  
+
   //Horizonal Mode
   if ($body.hasClass('horizontal')){
-    window.horizontalMode = 1; 
+    window.horizontalMode = 1;
   }
-  
+
   //Preload
   if ($body.hasClass('noPreload')){
-    window.preload = 0; 
+    window.preload = 0;
   }
-  
+
   //Is it animated?
   if ($body.hasClass('animated')){
     window.isAnimated = "auto";
   } else if ($body.hasClass('animateOnEvent')) {
     window.isAnimated = "animateOnEvent";
-    if (window.isMobile) { 
+    if (window.isMobile) {
       window.isAnimated = "auto";
       $body.removeClass('animateOnEvent').addClass('animated');
     }
@@ -124,7 +108,7 @@ $(document).ready(function() { "use strict";
   if ($body.hasClass('smoothScroll') && !window.isMobile){
     window.smoothScroll = 1;
   }
-  
+
   //Check hash on start
   function updateHash(){
     var hashLink = window.location.href.split("#")[1];
@@ -156,7 +140,7 @@ $(document).ready(function() { "use strict";
   }
 
   updateHash();
-  
+
   //Listen history changes
   $(window).on('popstate',function(e) {
     setTimeout(function(){
@@ -164,15 +148,15 @@ $(document).ready(function() { "use strict";
     },100);
     e.preventDefault();
   });
-  
+
   //Show Progress Bar
   if (window.preload){
     var imgs = [];
-    $("*").each(function() { 
-      if($(this).css("background-image") !== "none") { 
-        imgs.push($(this).css("background-image").replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '')); 
+    $("*").each(function() {
+      if($(this).css("background-image") !== "none") {
+        imgs.push($(this).css("background-image").replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, ''));
       } else if ($(this).is('img')){
-        imgs.push($(this).attr("src")); 
+        imgs.push($(this).attr("src"));
       }
     });
 
@@ -201,9 +185,9 @@ $(document).ready(function() { "use strict";
 
     updateProgressBar();
   }
- 
+
   //Initiate slide
-  showSlide(window.stage); 
+  showSlide(window.stage);
 
   $('.grid.masonry').masonry({
     itemSelector: 'li',
@@ -213,7 +197,7 @@ $(document).ready(function() { "use strict";
   $('.grid.masonry').imagesLoaded().progress( function() {
     $('.grid.masonry').masonry('layout');
   });
-  
+
   //On page load
   if (!window.preload || !window.images || window.loaded) {
     runTheCode();
@@ -230,7 +214,7 @@ $(document).ready(function() { "use strict";
     window.inAction = 0;
     window.blockScroll = 0;
     window.loaded = 1;
-    
+
     setTimeout(function(){
       if (window.isScroll){
         updateScroll();
@@ -244,46 +228,37 @@ $(document).ready(function() { "use strict";
       }
     },500);
   }
-  
-  
-  
-  
-  
-  
-  
-   
-/***
- *       _____ _ _     _         _____ _                            
- *      / ____| (_)   | |       / ____| |                           
- *     | (___ | |_  __| | ___  | |    | |__   __ _ _ __   __ _  ___ 
- *      \___ \| | |/ _` |/ _ \ | |    | '_ \ / _` | '_ \ / _` |/ _ \
- *      ____) | | | (_| |  __/ | |____| | | | (_| | | | | (_| |  __/
- *     |_____/|_|_|\__,_|\___|  \_____|_| |_|\__,_|_| |_|\__, |\___|
- *                                                        __/ |     
- *     Slide Appearance Manager                          |___/      
- */
-     
+
+
+
+
+
+
+
+
+
+
   function showSlide(requested){
-    
+
     requested = parseInt(requested);
-    
+
     if ( window.isMobile && window.isSimplifiedMobile || window.isScroll ){
       return;
     }
-    
+
     updateNavigation();
-    
+
     var newSlide = $('.slide').eq(requested - 1),
         currenSlide = $('.slide.selected'),
         currenSlideIndex = currenSlide.index('.slide') + 1;
-        
+
     //cleanup
     hideDropdown();
     unzoomImage();
     hideSidebar();
     window.allowSlide = 1;
-    
-    //reset 
+
+    //reset
     $body.removeClass('sidebarShown lastSlide firstSlide hidePanel-top hidePanel-bottom');
 
     //It it first or last stage?
@@ -294,50 +269,50 @@ $(document).ready(function() { "use strict";
       if ((window.stages === window.stage)&&(window.stages !== 1)) {
         $body.addClass('lastSlide');
       }
-      
+
       $body.removeClassByPrefix("stage-").addClass('stage-'+window.stage);
     }
-    
+
     //white slide?
     if ( newSlide.hasClass('whiteSlide') ){
       $body.addClass('whiteSlide');
     } else {
       $body.removeClass('whiteSlide');
     }
-    
+
     //prepare slides for transporting
     if (currenSlideIndex !== requested && window.setStageClasses != 0){
       currenSlide.removeClass('selected').addClass('active');
       newSlide.removeClass('before after').addClass('selected active');
-      
+
       //set order
       newSlide.prevAll('.slide').addClass('before').removeClass('after');
       newSlide.nextAll('.slide').addClass('after').removeClass('before');
-      
+
       //set a trigger
       $(window).trigger("slideChange", [parseInt(requested), newSlide]);
     }
-    
+
     //set hash
     if (window.setHashLink){
-      if (newSlide.attr('data-name') || newSlide.attr('id')) { 
+      if (newSlide.attr('data-name') || newSlide.attr('id')) {
         window.location.hash = (newSlide.attr('data-name')) ? newSlide.attr('data-name') : newSlide.attr('id');
-      } else if ((window.location.toString().indexOf('#')>0)&&(location.protocol !== "file:")&&(location.href.split('#')[0])){        
+      } else if ((window.location.toString().indexOf('#')>0)&&(location.protocol !== "file:")&&(location.href.split('#')[0])){
         if (history.pushState) {
-          window.history.pushState("", "", location.href.split('#')[0]); 
+          window.history.pushState("", "", location.href.split('#')[0]);
         } else {
           window.location.hash = "";
         }
       }
     }
-    
+
     //prepare to show slide
     newSlide.find('.content, .container').scrollTop(0);
 
     if (window.loaded){
       //wait for animation
       window.blockScroll = 1;
-      
+
       setTimeout(function(){
         if (currenSlideIndex !== requested){
           currenSlide.removeClass('active animate');
@@ -346,17 +321,17 @@ $(document).ready(function() { "use strict";
         //avoid accident scrolls
         window.blockScroll = 0;
       },window.effectSpeed);
-      
+
       if (window.effectOffset > window.slideSpeed) { window.effectOffset = window.slideSpeed; }
-      
+
       setTimeout(function(){
         newSlide.addClass('animate');
       },window.slideSpeed - window.effectOffset);
-      
-        
+
+
       //clear element animation on done
       $('.done').removeClass('done');
-      
+
       clearTimeout(window.clearElementAnimation);
       window.clearElementAnimation = setTimeout(function(){
         $(".slide.selected [class*='ae-']").addClass('done');
@@ -364,10 +339,10 @@ $(document).ready(function() { "use strict";
     }
     //end showSlide();
   }
-  
+
   //remove animation from a clickable element
   $(".animated").on("click", "[class*='ae-']:not('.done')", function(){ $(this).addClass('done'); });
-  
+
   //Change slide
   window.changeSlide = function(n){
     if (n === "increase"){
@@ -383,7 +358,7 @@ $(document).ready(function() { "use strict";
         n = window.stage - 1;
       }
     }
-    
+
     if ( window.isMobile && window.isSimplifiedMobile || window.isScroll ){
       window.stage = n;
       var requestedElement = $('.slide:eq('+ (window.stage - 1) +')'),
@@ -392,7 +367,7 @@ $(document).ready(function() { "use strict";
       $('html,body').stop().clearQueue().animate({scrollTop:finalPosition},1000);
     } else {
       if ((n !== window.stage)&&( n <= window.stages)){
-        if (window.inAction !== 1){  
+        if (window.inAction !== 1){
           window.inAction = 1;
           window.stage = n;
 
@@ -410,42 +385,42 @@ $(document).ready(function() { "use strict";
       }
     }
   };
-  
+
   $('.nextSlide').on('click', function(){
     window.changeSlide('increase');
   });
-  
+
   $('.prevSlide').on('click', function(){
     window.changeSlide('decrease');
   });
-  
+
   $('.toFirstSlide').on('click', function(){
     window.changeSlide(1);
     if (history.pushState) {
-      window.history.pushState("", "", location.href.split('#')[0]); 
+      window.history.pushState("", "", location.href.split('#')[0]);
     } else {
       window.location.hash = "";
     }
-    
+
     hideSidebar();
   });
-  
+
   $('.toLastSlide').on('click', function(){
     window.changeSlide(window.stages);
     if (history.pushState) {
-      window.history.pushState("", "", location.href.split('#')[0]); 
+      window.history.pushState("", "", location.href.split('#')[0]);
     } else {
       window.location.hash = "";
     }
     hideSidebar();
   });
-  
+
   $('[class*="toSlide-"]').on('click', function(){
     var num = parseInt($(this).attr('class').split('toSlide-')[1].split(' ')[0]);
     window.changeSlide(num);
     hideSidebar();
   });
-  
+
   //zoom out image
   function unzoomImage(type){
     if ($('.zoom-overlay-open').length > 0){
@@ -459,7 +434,7 @@ $(document).ready(function() { "use strict";
 
   //set
   $(window).on('resize load ready',function(){
-    //cleanup after image zoom 
+    //cleanup after image zoom
     $('[data-action="zoom"]').removeAttr('style');
     if ($('.zoom-overlay').length > 0){
       unzoomImage('fast');
@@ -470,25 +445,25 @@ $(document).ready(function() { "use strict";
     window.windowWidth = $(window).width();
     window.documentHeight = $(document).height();
   });
-  
-  
-  
-  
-  
-  
-  
-   
-/***       *             
+
+
+
+
+
+
+
+
+/***       *
  *         |         |          |
- *               |              
- *       _____            *   _ _ 
+ *               |
+ *       _____            *   _ _
  *      / ____|           |  | | |
  *     | (___   ___ _ __ ___ | | |
  *      \___ \ / __| '__/ _ \| | |
  *      ____) | (__| | | (_) | | |
  *     |_____/ \___|_|  \___/|_|_|
- *                                
- *      Scrolling 
+ *
+ *      Scrolling
  */
 
   var eventCount = 0,
@@ -509,29 +484,29 @@ $(document).ready(function() { "use strict";
 
     //skip empty events
     if (!scrollsize) return;
-    
+
     //scroll mode
     if (window.isScroll && ((!window.sidebarShown)&&(!window.popupShown)&&(!window.blockScroll))) {
-    
+
       //smooth scroll
       if (window.smoothScroll && !window.isMobile){
-        
+
         //lock default scroll
         event.preventDefault();
-            
+
         if (energy > 1500) { energy = 1500; }
         if (energy < -1000) { energy = -1500; }
-            
+
         var scrollObject = $(window),
             scrollTop = scrollObject.scrollTop(),
             finalScroll = scrollTop - energy;
-              
+
         TweenLite.to(scrollObject, window.scrollSpeed, {
           scrollTo : { y: finalScroll, autoKill:false },
           ease: Power4.easeOut,
-          overwrite: "all"            
+          overwrite: "all"
         });
-            
+
       } else {
         if (!window.isWindows){
           $currentSection.scrollTop(curSecScrolltop - energy);
@@ -541,10 +516,10 @@ $(document).ready(function() { "use strict";
 
     //slide mode
     if ( !window.isScroll && !(window.isMobile && window.isSimplifiedMobile)){
-      
+
       // scroll oversized content
       if ((currentSectionHeight > window.windowHeight)){
-        
+
         if ((( scrollDirection === "up" ) && ( $currentSection.scrollTop() === 0 )) || (( scrollDirection === "down" ) && ( $currentSection.scrollTop() + window.windowHeight >= Math.floor(currentSectionHeight / deviceZoom) ))){
           window.allowSlide = 1;
         } else {
@@ -569,23 +544,23 @@ $(document).ready(function() { "use strict";
         }
 
         if ((!window.sidebarShown)&&(!window.popupShown)&&(!window.blockScroll)) {
-          
+
           if (window.smoothScroll){
             //lock default scroll
             event.preventDefault();
-            
+
             //smooth scroll
             if (energy > 1500) { energy = 1500; }
             if (energy < -1000) { energy = -1500; }
-              
+
             TweenLite.to($currentSection, 0.5, {
               scrollTo : { y: curSecScrolltop - energy, autoKill:false },
               ease: Power4.easeOut,
-              overwrite: 5              
+              overwrite: 5
             });
-            
+
           } else {
-            curSecScrolltop = (scrollDirection === "up") ? curSecScrolltop - scrollsize : curSecScrolltop + scrollsize;   
+            curSecScrolltop = (scrollDirection === "up") ? curSecScrolltop - scrollsize : curSecScrolltop + scrollsize;
             $currentSection.scrollTop(curSecScrolltop);
           }
         }
@@ -603,15 +578,15 @@ $(document).ready(function() { "use strict";
           window.collectScrolls = 0;
         },200);
       }
-      
+
       //change slide on medium user scroll
       if ((Math.abs(window.collectScrolls) >= minScrollToSlide) && (window.allowSlide) && (!window.sidebarShown) && (!window.popupShown) && (!window.disableOnScroll)){
-        
+
         window.collectScrolls = 0;
 
-        //should we even.. 
+        //should we even..
         if ((scrollDirection === "down" && window.stage !== window.stages)||(scrollDirection === "up" && window.stage !== 1)){
-          
+
           //ok let's go
           if (window.inAction !== 1){
             if (scrollDirection === "down"){
@@ -632,7 +607,7 @@ $(document).ready(function() { "use strict";
       updateScroll();
     });
   }
-  
+
   //Hide share with delay
   var hideDropdownOnScrollDelay = 0;
 
@@ -644,9 +619,9 @@ $(document).ready(function() { "use strict";
       hideDropdown();
       hideDropdownOnScrollDelay = 0;
     }
-    
+
     $('.slide').each(function(index, element) {
-        
+
       var $element = $(element),
           elementIndex = $element.index('.slide'),
           scrollTop = $(document).scrollTop(),
@@ -656,7 +631,7 @@ $(document).ready(function() { "use strict";
           halfOnScreen = ((positionY < (window.windowHeight + scrollTop - halfWay)) && (positionY > (scrollTop - elementHeight + halfWay))),
           scale = (((scrollTop + window.windowHeight) - positionY) / (window.windowHeight + elementHeight) - 0.5) * 2,
           allowToSelect = true;
-            
+
       //checking first slide
       if (scrollTop === 0) {
         if (index === 0) {
@@ -665,7 +640,7 @@ $(document).ready(function() { "use strict";
           allowToSelect = false;
         }
       }
-            
+
       //checking last slide
       if (scrollTop + window.windowHeight === window.documentHeight) {
         if (index === window.stages - 1) {
@@ -674,7 +649,7 @@ $(document).ready(function() { "use strict";
           allowToSelect = false;
         }
       }
-      
+
       if (window.setStageClasses != 0) {
         if (halfOnScreen && allowToSelect) {
           //set order
@@ -682,10 +657,10 @@ $(document).ready(function() { "use strict";
           $element.prevAll('.slide').addClass('before').removeClass('after');
           $element.nextAll('.slide').addClass('after').removeClass('before');
           $element.addClass('selected animate active').removeClass('after before');
-          
+
           if ((window.stage !== elementIndex + 1) || !window.firstTimeTrigger){
             window.stage = elementIndex + 1;
-            
+
             //set a trigger
             $(window).trigger("slideChange", [window.stage, $element]);
 
@@ -708,14 +683,14 @@ $(document).ready(function() { "use strict";
             } else {
               $body.removeClass('whiteSlide');
             }
-            
+
             if (window.isAnimated == "auto") {
               //clearTimeout(window.clearElementAnimation);
               window.clearElementAnimation = setTimeout(function(){
                 $element.find("[class*='ae-']").addClass('done');
               }, window.effectSpeed + window.cleanupDelay);
             }
-                
+
             updateNavigation();
           }
 
@@ -723,12 +698,12 @@ $(document).ready(function() { "use strict";
             window.firstTimeTrigger = 1;
             $(window).trigger("slideChange", [window.stage, $element]);
           }
-              
+
         } else {
           $element.removeClass('selected');
         }
       }
-        
+
       //Parallax background
       if ((scale > -1 && scale < 1) && !(window.allowParallaxOnMobile && window.isMobile)) {
         if ($element.hasClass('parallax') || $element.find('.parallax-element')){
@@ -786,22 +761,22 @@ $(document).ready(function() { "use strict";
   };
 
 
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
 /***
  *       _____
- *      / ____|       (*)           
- *     | (_____      ___ _ __   ___ 
+ *      / ____|       (*)
+ *     | (_____      ___ _ __   ___
  *      \___ \ \ /\ / / | '_ \ / _ \
  *      ____) \ V  V /| | |_) |  __/
  *     |_____/ \_/\_/ |_| .__/ \___|
- *                      | |         
+ *                      | |
  *                      |_|
  *
  *     Swipes for mobile devices
@@ -810,10 +785,10 @@ $(document).ready(function() { "use strict";
 
   $('.mobile .slides:not(.scroll):not(.simplifiedMobile), .slides.desktopSwipe').swipe({
     swipeStatus:function(event, phase, direction, distance){
-      
+
       window.allowSwipeUp = 1;
       window.allowSwipeDown = 1;
-          
+
       //set height for current slide
       var $currentSection = $('.slide.selected .content'),
           currentSectionHeight = Math.floor($currentSection.find('.container').outerHeight()),
@@ -821,25 +796,25 @@ $(document).ready(function() { "use strict";
           prev = "down",
           minSwipeToSlide = window.minSwipeToSlide,
           windowHeight = window.innerHeight;
-          
+
       if (window.sidebarShown){
         $currentSection = $('.sidebar .content');
-      } 
-      
+      }
+
       if (window.popupShown){
         $currentSection = $('.popup .content');
       }
-      
+
       if (phase === "start") {
         window.scrollTop = $currentSection.scrollTop();
       }
-          
+
       //horizontal mode
       if (window.horizontalMode){
         next = "left";
         prev = "right";
       }
-      
+
       //lock slide
       if ( !window.horizontalMode && ( currentSectionHeight > windowHeight) ){
         if (window.scrollTop + windowHeight < currentSectionHeight){
@@ -848,8 +823,8 @@ $(document).ready(function() { "use strict";
         if (window.scrollTop > 0) {
           window.allowSwipeDown = 0;
         }
-      } 
-      
+      }
+
       if (!window.sidebarShown && !window.disableOnSwipe) {
         if (window.horizontalMode){
           if (direction === next && distance > minSwipeToSlide){
@@ -874,50 +849,50 @@ $(document).ready(function() { "use strict";
   $('.slides.desktopSwipe *').on('click',function(){
     $(this).addClass('selectable');
   });
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
 /***
- *      _____                 _     
- *     |  __ \               | |    
- *     | |__) |_ _ _ __   ___| |___ 
+ *      _____                 _
+ *     |  __ \               | |
+ *     | |__) |_ _ _ __   ___| |___
  *     |  ___/ _` | '_ \ / _ \ / __|
  *     | |  | (_| | | | |  __/ \__ \
  *     |_|   \__,_|_| |_|\___|_|___/
- *                                  
+ *
  *     Responsive Panels
  */
-      
+
   if($('.panel .compact').length > 0){
-    
+
     $('.panel .compact').each(function(index, element) {
       var panel = $(element).parents('.panel'),
           desktop = $(panel).find('.desktop'),
           compact = element,
           forceMobileView = $(panel).hasClass('forceMobileView');
-      
+
       $(window).on('load resize ready',function(){
-        
+
         var documentWidth = $(document).width(),
             panelsPadding = parseInt($(panel).css('padding-left').replace('px','')) + parseInt($(panel).css('padding-right').replace('px',''));
-        
+
         if ((window.isMobile || $(document).width() < 767) && forceMobileView) {
-        
+
           $(desktop).addClass('hidden');
           $(compact).removeClass('hidden');
-        
+
         } else {
-          
+
           $(desktop).removeClass('hidden');
           $(compact).addClass('hidden');
-          
+
           var totalWidth = 0;
-          
+
           desktop.children().each(function(){
             if ( $(this).outerWidth() > $(this).children().outerWidth() ){
               totalWidth += Math.round($(this).outerWidth());
@@ -925,7 +900,7 @@ $(document).ready(function() { "use strict";
               totalWidth += Math.round($(this).children().outerWidth());
             }
           });
-          
+
           // if width of space is not enough or we are on mobile
           if ((totalWidth + Math.round(panelsPadding) > documentWidth + 2 ) || ((window.isMobile || documentWidth < 767) && forceMobileView)) {
             $(desktop).addClass('hidden');
@@ -935,12 +910,12 @@ $(document).ready(function() { "use strict";
             $(compact).addClass('hidden');
           }
         }
-          
+
       });
-      
+
     });
   }
-  
+
   //HIDE PANELS ON SCROLL
   if ($('.panel.hideOnScroll').length > 0) {
     window.panelsToHide = true;
@@ -950,13 +925,13 @@ $(document).ready(function() { "use strict";
           i = 0,
           sensitivity = window.hideOnScrollSensitivity ? window.hideOnScrollSensitivity : 100,
           panelToHide = $('.panel.hideOnScroll');
-           
-      //hide if height larger than screen size 
+
+      //hide if height larger than screen size
       $(window).on('mousewheel', function(event) {
         var scrollTop = $(this).scrollTop(),
             $panelToHide = $(panelToHide),
             scrollSize = Math.ceil(Math.abs(event.deltaY) * event.deltaFactor);
-            
+
         if (scrollTop > lastScrollTop) {
           i += scrollSize;
           if (i >= sensitivity) {
@@ -971,35 +946,35 @@ $(document).ready(function() { "use strict";
           }
         }
         lastScrollTop = scrollTop;
-        
+
         //show on top and bottom
         if ((scrollTop + window.windowHeight + sensitivity >= window.documentHeight) || (scrollTop + sensitivity <= 0)) {
           $panelToHide.removeClass('hide');
         }
-      }); 
+      });
     }
   }
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
 /***
- *      _  __              
- *     | |/ /              
- *     | ' / ___ _   _ ___ 
+ *      _  __
+ *     | |/ /
+ *     | ' / ___ _   _ ___
  *     |  < / _ \ | | / __|
  *     | . \  __/ |_| \__ \
  *     |_|\_\___|\__, |___/
- *                __/ |    
+ *                __/ |
  *               |___/
  *
  *      Listen the Keys
  */
-   
+
   $(document).on("keydown",function(e){
     var delta = 2.5,
         scrollTime = 0.3,
@@ -1011,13 +986,13 @@ $(document).ready(function() { "use strict";
     if (window.window.disableKeyNavigation || e.target.nodeName.toLowerCase() == 'input' || e.target.nodeName.toLowerCase() == 'textarea') {
       return;
     }
-    
+
     /* [ ← ] */
     if (e.keyCode === 37){
       e.preventDefault();
       if (window.horizontalMode){ window.changeSlide('decrease'); }
     }
-    
+
     /* [ ↑ ] */
     if (e.keyCode === 38){
       if (!window.horizontalMode){
@@ -1028,19 +1003,19 @@ $(document).ready(function() { "use strict";
         TweenLite.to($currentSection, window.scrollSpeed, {
           scrollTo : { y: finalScroll, autoKill:true },
           ease: Power4.easeOut,
-          overwrite: 5              
+          overwrite: 5
         });
       }
     }
-    
+
     /* [ → ] */
     if (e.keyCode === 39){
-      if (window.horizontalMode){ 
+      if (window.horizontalMode){
         e.preventDefault();
         window.changeSlide('increase');
       }
     }
-    
+
     /* [ ↓ ] */
     if (e.keyCode === 40){
       if (!window.horizontalMode) {
@@ -1051,11 +1026,11 @@ $(document).ready(function() { "use strict";
         TweenLite.to($currentSection, window.scrollSpeed, {
           scrollTo : { y: finalScroll, autoKill:true },
           ease: Power4.easeOut,
-          overwrite: 5              
+          overwrite: 5
         });
       }
     }
-    
+
     /* [ esc ] */
     if (e.keyCode === 27){
       hideSidebar();
@@ -1064,37 +1039,37 @@ $(document).ready(function() { "use strict";
       unzoomImage();
     }
   });
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
 /***
-*    _   _                           _                 
+*    _   _                           _
 *   | \ | |           (*)           | | (*)                 *
 *   |  \| | __ ___   ___  __ _  __ _| |_ _  ___  _ __       *
 *   | . ` |/ _` \ \ / | |/ _` |/ _` | __| |/ _ \| '_ \     (*) [Tooltip]
 *   | |\  | (_| |\ V /| | (_| | (_| | |_| | (_) | | | |     *
 *   |_| \_|\__,_| \_/ |_|\__, |\__,_|\__|_|\___/|_| |_|     *
 *                         __/ |
-*                        /___/ 
+*                        /___/
 *
 *    Generate Navigation Dots and Tootlips
 */
-  
-  
-  
+
+
+
   var navParent = $('.navigation'),
       navigation = $(navParent).find('ul'),
       slidesNumber = $('.slide:not(.exclude)').length;
-  
+
   if ($(navigation).length > 0) {
-  
+
     if ($(navigation).is(':empty')) {
-      
+
       $(navigation).each(function(index, element) {
         for (var i = 1; i <= slidesNumber; i++){
 
@@ -1108,7 +1083,7 @@ $(document).ready(function() { "use strict";
         }
       });
     }
-    
+
     //Navigation clicks
     $('.navigation li').on("click touchend", function(){
       var thisIndes = $(this).index(),
@@ -1118,18 +1093,18 @@ $(document).ready(function() { "use strict";
 
       window.changeSlide(realIndex + 1);
     });
-    
+
     if (!$('.side').hasClass('compact')){
       //Collapse sidemenu to compact
       $(window).on('load resize ready',function(){
         var containerHeight = window.windowHeight - 140,
             container = $('.side').removeClass('compact').find('ul'),
             totalWidth = 0;
-        
+
         $(container).children().each(function(){
           totalWidth += Math.round($(this).outerHeight(true));
         });
-        
+
         if (totalWidth > containerHeight){
           $('.side').addClass('compact');
         } else {
@@ -1138,24 +1113,24 @@ $(document).ready(function() { "use strict";
       });
     }
   }
-  
+
   //In-page #Navigation
-  $("a[href^='#'][target!='_blank']").click(function(e){ 
+  $("a[href^='#'][target!='_blank']").click(function(e){
 
     var url = $(this).attr('href'),
         hashLink = url.split('#')[1],
         requestedElement = hashLink ? $('.slide[id="' +hashLink+ '"], .slide[data-name="' +hashLink+ '"]') : $('.slide:eq(0)');
-    
+
     if( requestedElement.length > 0 ){
 
       e.preventDefault();
-    
+
       if ( window.isMobile && window.isSimplifiedMobile || window.isScroll ){
         var target = requestedElement;
         if (target.length) {
           $('html,body').stop().clearQueue().animate({scrollTop:target.position().top},1000);
         }
-        if (window.setHashLink){ 
+        if (window.setHashLink){
           window.location.hash = hashLink;
         }
       } else {
@@ -1164,9 +1139,9 @@ $(document).ready(function() { "use strict";
       }
       hideSidebar();
     }
-    
+
   });
-  
+
   //Update Navigation
   function updateNavigation(){
     setTimeout(function(){
@@ -1188,27 +1163,27 @@ $(document).ready(function() { "use strict";
       }
     },100);
   }
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
 /***
-*       _____ _     _      _                
-*      / ____(_)   | |    | |               
-*     | (___  _  __| | ___| |__   __ _ _ __ 
+*       _____ _     _      _
+*      / ____(_)   | |    | |
+*     | (___  _  __| | ___| |__   __ _ _ __
 *      \___ \| |/ _` |/ _ \ '_ \ / _` | '__|
-*      ____) | | (_| |  __/ |_) | (_| | |   
-*     |_____/|_|\__,_|\___|_.__/ \__,_|_|   
-*                                           
-*     Sidebar Panel 
+*      ____) | | (_| |  __/ |_) | (_| | |
+*     |_____/|_|\__,_|\___|_.__/ \__,_|_|
+*
+*     Sidebar Panel
 */
 
   $('.sidebarTrigger[data-sidebar-id]').on('click', function(){
-    
+
     var sidebarID = $(this).data('sidebar-id');
     window.showSidebar(sidebarID);
 
@@ -1218,7 +1193,7 @@ $(document).ready(function() { "use strict";
     var sidebarID = id,
         element = $('.sidebar[data-sidebar-id="' + sidebarID + '"]'),
         isAnimated = $(element).hasClass('animated');
-    
+
     if (!window.sidebarShown){
       if (element.length > 0) {
         window.sidebarShown = 1;
@@ -1226,7 +1201,7 @@ $(document).ready(function() { "use strict";
         $(element).removeClass('animate active').addClass('visible');
         $html.addClass('sidebarShown sidebar_' + sidebarID);
         $(element).find('.content').scrollTop(0);
-        
+
         if (isAnimated){
           clearTimeout(window.removeAnimationTimeout);
           setTimeout(function(){
@@ -1237,19 +1212,19 @@ $(document).ready(function() { "use strict";
     } else {
       hideSidebar();
     }
-    
+
     //clean up
     hideDropdown();
 
   }
-  
+
   function hideSidebar(){
-    
+
     if (window.sidebarShown){
       $html.removeClass('sidebarShown').removeClassByPrefix('sidebar_');
       var $sidebar = $('.sidebar.visible');
       $sidebar.removeClass('visible');
-      
+
       window.removeAnimationTimeout = setTimeout(function(){
         $sidebar.removeClass('animate active').find('.done').removeClass('done');
       },500);
@@ -1257,7 +1232,7 @@ $(document).ready(function() { "use strict";
       window.allowSlide = 1;
     }
   }
-  
+
   //Hide on click outside
   $(document).on('mouseup touchstart', function (e){
     var container = $(".sidebarShown .sidebar, .dropdownTrigger");
@@ -1265,31 +1240,31 @@ $(document).ready(function() { "use strict";
       hideSidebar();
     }
   });
-  
+
   //Hide on .close Click
   $('.sidebar .close, .sidebar [data-sidebar-action="close"]').on('click touchstart', function(){
     hideSidebar();
   });
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
 /***
 *     _____                            __
 *    |  __ \           _   _ _ __     |  |_
 *    | |__) ___  _ __ | | | | '_ \    |__| |
 *    |  ___/ _ \| '_ \| | | | |_) |     |__|
 *    | |  | (_) | |_)  \__,_| .__/
-*    |_|   \___/| .__/      | |    
-*               | |         |_|    
+*    |_|   \___/| .__/      | |
+*               | |         |_|
 *    PopUp      |_|
 */
 
-                
+
   $('.popupTrigger[data-popup-id]').on('click', function(){
     var popupID = $(this).data('popup-id');
     window.showPopup(popupID);
@@ -1299,25 +1274,25 @@ $(document).ready(function() { "use strict";
     var popupID = id,
         element = $('.popup[data-popup-id="' + popupID + '"]'),
         isAnimated = element.hasClass('animated');
-    
+
     if (element.length > 0) {
       hideSidebar();
       $(element).addClass('visible');
 
       //set a trigger
       $(window).trigger('popupShown');
-      
+
       if (isAnimated){
         setTimeout(function(){
           $(element).addClass('animate active');
-          
+
           clearTimeout(window.clearPopupElementAnimation);
           window.clearPopupElementAnimation = setTimeout(function(){
             $(element).find("[class*='ae-']").addClass('done');
           }, window.effectSpeed + window.cleanupDelay);
         },100);
       }
-    
+
       $html.addClass('popupShown popup_' + popupID);
       $(element).find('.content').scrollTop(0);
       window.allowSlide = 0;
@@ -1325,13 +1300,13 @@ $(document).ready(function() { "use strict";
       //Add Popup ID in the stack
       if (!window.popupShown) window.popupShown = [];
       window.popupShown.push(popupID);
-      
+
       //Autoplay Iframe
       if ($(element).hasClass('autoplay')){
         var $element = $(element),
             iframe = $element.find('iframe'),
             HTML5video = $element.find('video');
-            
+
         if ( iframe.length > 0  ) {
           var iframeSrc = $(iframe).attr('src'),
               symbol = (iframeSrc.indexOf('?') > -1) ? "&" : "?";
@@ -1342,21 +1317,21 @@ $(document).ready(function() { "use strict";
         }
       }
     }
-    
+
     //clean up
     hideDropdown();
   }
 
   function hidePopup(popupID) {
     popupID = typeof popupID !== 'undefined' ? popupID : false;
-    
+
     if ( $.isArray(window.popupShown) ){
 
       var popupToHide = popupID ? popupID : window.popupShown.slice(-1)[0],
           $element = $('.popup.visible[data-popup-id="' + popupToHide + '"]'),
           iframe = $element.find('iframe'),
           video = $element.find('video');
-       
+
       //stop iframe autoplay
       if (iframe.length > 0 ) {
         $(iframe).each(function(n, element){
@@ -1374,12 +1349,12 @@ $(document).ready(function() { "use strict";
           $(element)[0].currentTime = 0;
         });
       }
-       
+
       //clear element animation on done
       clearTimeout(window.clearPopupElementAnimation);
       $element.addClass('hidePopup');
       $(window).trigger('popupHidden');
-      
+
       setTimeout(function(){
         window.allowSlide = 1;
 
@@ -1387,7 +1362,7 @@ $(document).ready(function() { "use strict";
         $html.removeClass('popup_' + popupToHide);
 
         //remove last shown id
-        if($.isArray(window.popupShown)) { 
+        if($.isArray(window.popupShown)) {
           var i = window.popupShown.indexOf(popupToHide);
           if(i != -1) {
             window.popupShown.splice(i, 1);
@@ -1401,7 +1376,7 @@ $(document).ready(function() { "use strict";
       }, 500);
     }
   }
-   
+
   //Hide on body click
   if (window.hidePopupOnBodyClick){
     $(document).on('click', function (e){
@@ -1411,7 +1386,7 @@ $(document).ready(function() { "use strict";
       }
     });
   }
-   
+
   //Hide on .close Click
   $('.popup [data-popup-action="close"]').on('click', function(){
     hidePopup($(this).parents('.popup').data('popup-id'));
@@ -1443,60 +1418,60 @@ $(document).ready(function() { "use strict";
 
       $(window).on('popupHidden', function(){
         if (history.pushState) {
-          window.history.pushState("", "", location.href.split('#')[0]); 
+          window.history.pushState("", "", location.href.split('#')[0]);
         } else {
           window.location.hash = "";
         }
       });
     }
   }
-  
-  
-   
+
+
+
 /***
-*       _____       ______ ______ ______ 
+*       _____       ______ ______ ______
 *      / ____|     |  ____|  ____|  ____|
-*     | |  __  __ _| |__  | |__  | |__   
-*     | | |_ |/ _` |  __| |  __| |  __|  
-*     | |__| | (_| | |    | |____| |____ 
+*     | |  __  __ _| |__  | |__  | |__
+*     | | |_ |/ _` |  __| |  __| |  __|
+*     | |__| | (_| | |    | |____| |____
 *      \_____|\__,_|_|    |______|______|
-*                                        
-*     Grid and Flex Element Equalizer 
+*
+*     Grid and Flex Element Equalizer
 */
-  
+
   $(window).on('resize load ready popupShown',function(){
 
     setTimeout(function(){
       equalizeElements();
     }, 1);
   });
-    
+
   function equalizeElements(){
-    
+
     var gridEl = $('.grid.equal, .flex.equal');
     if (gridEl.length) {
       $(gridEl).each(function(index, element) {
-        
+
         var screenWidth = window.windowWidth,
             collapseWidth = ($(element).hasClass('later')) ? 767 : 1024,
             collapseWidth = $(element).data('equal-collapse-width') ? parseInt($(element).data('equal-collapse-width')) : collapseWidth,
             equalElement = $(element).find('.equalElement'),
             equalMobile = $(this).hasClass('equalMobile');
-            
+
         if ((screenWidth >= collapseWidth)||(equalMobile)){
           var height = 0;
-            
+
           //fetch max height
           $(equalElement).each(function(index, el) {
-            
+
             $(el).css('height','auto');
-            
+
             if (height < $(el).outerHeight()) {
               height = $(el).outerHeight();
             }
-            
+
           });
-              
+
           //apply
           $(element).find('.equalElement').each(function(index, el) {
             $(el).css('height', height + "px");
@@ -1507,35 +1482,35 @@ $(document).ready(function() { "use strict";
       });
     }
   }
- 
+
   //Detect Resize
   $(window).on('resize',function(){
     $html.addClass('resizing');
   }).on('resizeEnd',function(){
     $html.removeClass('resizing');
   });
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
 /***
-*       _____ _ _     _           
-*      / ____| (_)   | |          
-*     | (___ | |_  __| | ___ _ __ 
+*       _____ _ _     _
+*      / ____| (_)   | |
+*     | (___ | |_  __| | ___ _ __
 *      \___ \| | |/ _` |/ _ \ '__|
-*      ____) | | | (_| |  __/ |   
-*     |_____/|_|_|\__,_|\___|_|   
-*                                 
+*      ____) | | | (_| |  __/ |
+*     |_____/|_|_|\__,_|\___|_|
+*
 *      Slider       * *(*)* *
 */
-  
-  
+
+
   var sliderEl = $('.slider');
-  
+
   if ($(sliderEl).length > 0) {
 
     $(sliderEl).each(function(index, element) {
@@ -1570,7 +1545,7 @@ $(document).ready(function() { "use strict";
       //clickable
       if ($el.hasClass('clickable') || $el.hasClass('autoplay')){
         $el.on('click next', function(event){
-  
+
           var $el = $(this),
               $selected = $el.children('.selected'),
               $nextElement = $selected.nextOrFirst('li'),
@@ -1582,7 +1557,7 @@ $(document).ready(function() { "use strict";
 
           //break
           if($(clickTarget).data('slider-event') == "cancel") return;
-               
+
           //uselect old
           $selected.removeClass('selected').addClass('hide').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
             $(this).removeClass('hide');
@@ -1606,7 +1581,7 @@ $(document).ready(function() { "use strict";
 
             $(window).scroll();
           }
-                    
+
           if (sliderID && $controller.length > 0){
             $controller.children('.selected').removeClass('selected');
             $controller.children('li:eq('+nextIndex+')').addClass('selected');
@@ -1615,10 +1590,10 @@ $(document).ready(function() { "use strict";
       }
     });
   }
-  
+
   // controller
   var $controller = $('.controller');
-  
+
   if ($controller.length > 0) {
 
     var controllerSelector = $controller.data('controller-selector') ? $controller.data('controller-selector') : "li";
@@ -1659,10 +1634,10 @@ $(document).ready(function() { "use strict";
       }
     });
   }
-  
+
   //Next and prev buttons
   $('[data-slider-action]').click(function(){
-    
+
     if ($(this).data('slider-id')){
       var $this = $(this),
           $desiredElement, nextIndex,
@@ -1683,7 +1658,7 @@ $(document).ready(function() { "use strict";
         nextIndex = parseInt(action);
         $desiredElement =$slider.find('>li:eq(' + nextIndex + ")");
       }
-               
+
       //select element
       nextIndex = $desiredElement.index();
       $selected.removeClass('selected');
@@ -1693,7 +1668,7 @@ $(document).ready(function() { "use strict";
       if (window.sliderStatus) {
         $html.removeClassByPrefix("slider_" + sliderID).addClass("slider_" + sliderID + "_" + nextIndex);
       }
-      
+
       //is animated
       if (isAnimated) {
         $slider.addClass('animateOnEvent');
@@ -1703,7 +1678,7 @@ $(document).ready(function() { "use strict";
         });
         $(window).scroll();
       }
-      
+
       //change controller
       if ((sliderID) && ($controller.length > 0) ){
         $controller.find('.selected').removeClass('selected').addClass('hide').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
@@ -1711,16 +1686,16 @@ $(document).ready(function() { "use strict";
         });
         $controller.find(controllerSelector).eq(nextIndex).addClass('selected');
       }
-      
+
     }
   });
-  
+
   //Auto Height
   $('[data-slider-id].autoHeight').each(function(index, element) {
     $(window).on('click resize load ready next',function(){
       var totalHeight = 0,
           el = $(element).find('.selected');
-      
+
       $(element).find('.selected').children().each(function(){
         totalHeight += Math.round($(this).outerHeight(true));
       });
@@ -1728,31 +1703,31 @@ $(document).ready(function() { "use strict";
       $(element).height(totalHeight + "px");
     });
   });
-  
+
   $(".slider.clickable[data-slider-id], .controller[data-slider-id]").on('click', function(event){
     if($(event.target).data('slider-event') != "cancel") $(window).resize();
   });
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
 /***
-*      _____                      _                     
-*     |  __ \                    | |                    
-*     | |  | |_ __ ___  _ __   __| | _____      ___ __  
-*     | |  | | '__/ _ \| '_ \ / _` |/ _ \ \ /\ / / '_ \ 
+*      _____                      _
+*     |  __ \                    | |
+*     | |  | |_ __ ___  _ __   __| | _____      ___ __
+*     | |  | | '__/ _ \| '_ \ / _` |/ _ \ \ /\ / / '_ \
 *     | |__| | | | (_) | |_) | (_| | (_) \ V  V /| | | |
 *     |_____/|_|  \___/| .__/ \__,_|\___/ \_/\_/ |_| |_|
-*                      | |                              
+*                      | |
 *                      |_|
 *
 *     Dropdown Window and Share
 */
 
-       
+
   window.dropdownShown = false;
   //click
   $('.dropdownTrigger').on('click', function(){
@@ -1765,8 +1740,8 @@ $(document).ready(function() { "use strict";
   });
 
   function showDropdown($this, $isHover){
-    $isHover = typeof $isHover !== 'undefined' ? $isHover : false;  
-    
+    $isHover = typeof $isHover !== 'undefined' ? $isHover : false;
+
     //show
     var offset = $this.offset(),
         position = $this.position(),
@@ -1781,7 +1756,7 @@ $(document).ready(function() { "use strict";
     if (!$isHover) {
       hideDropdown();
     }
-    
+
     //vertical position
     if ( elementPosition.indexOf('bottom') != -1 ) {
       offsetY = offsetY - $element.outerHeight();
@@ -1790,7 +1765,7 @@ $(document).ready(function() { "use strict";
       offsetY = offsetY + $this.outerHeight();
       $element.removeClass('bottom').addClass('top');
     }
-    
+
     //horizontal position
     if ( elementPosition.indexOf('right') != -1 ) {
       offsetX = offsetX - $element.outerWidth() + $this.outerWidth();
@@ -1801,12 +1776,12 @@ $(document).ready(function() { "use strict";
       offsetX = offsetX - ($element.outerWidth()/2) + ($this.outerWidth()/2);
       $element.removeClass('right left').addClass('center');
     }
-    
+
     $element.addClass('show').css('top',offsetY).css('left',offsetX);
     $html.addClass('dropdownShown dropdown_' + dropdownID);
     window.dropdownShown = true;
   }
-  
+
   function hideDropdown(){
     //hide
     if (window.dropdownShown){
@@ -1820,12 +1795,12 @@ $(document).ready(function() { "use strict";
       $(window).trigger('dropdownHidden');
     }
   }
-  
+
   //remove on resize
-  $(window).on('resize',function(){ 
+  $(window).on('resize',function(){
     hideDropdown();
   });
-  
+
   //remove on click outside
   $(document).on('mouseup touchstart', function (e){
     var container = $(".dropdownShown .dropdown");
@@ -1833,7 +1808,7 @@ $(document).ready(function() { "use strict";
       hideDropdown();
     }
   });
-  
+
   //set url for share
   window.shareUrl = window.location.href;
   if ($('.share').data('url')) {
@@ -1844,7 +1819,7 @@ $(document).ready(function() { "use strict";
   if ($('.share').data('text')) {
     window.shareText = $('.dropdown').data('url');
   }
-  
+
   $('.share').sharrre({
     enableHover: false,
     url: window.shareUrl,
@@ -1858,18 +1833,18 @@ $(document).ready(function() { "use strict";
       stumbleupon: true,
       linkedin: true
     },
-    
+
     buttons: {
       pinterest: {
         media: $('.dropdown').data('pinterest-image'),
         description: $('.dropdown').data('text') + " " + $('.dropdown').data('url')
       }
     },
-    
+
     template: $('.share').html(),
-    
+
     render: function(api) {
-      
+
       $(api.element).on('click touchstart', '.social-twitter', function() {
         api.openPopup('twitter');
       });
@@ -1892,34 +1867,34 @@ $(document).ready(function() { "use strict";
         var subject = $(this).data('subject') ? $(this).data('subject') : "",
             body = $(this).data('body') ? $(this).data('body') : "",
             url = $('.dropdown').data('url') ? $('.dropdown').data('url') : window.location.href;
- 
+
         //open email
         window.location.href ="mailto:?subject=" + encodeURIComponent( subject ) + "&body=" + encodeURIComponent( body ) + "%20" + url;
       });
-      
+
     }
   });
-  
-  
-  
-  
-  
-  
-  
-   
+
+
+
+
+
+
+
+
 /***
-*      _____  _       _             
-*     |  __ \(_)     | |            
-*     | |  | |_  __ _| | ___   __ _ 
+*      _____  _       _
+*     |  __ \(_)     | |
+*     | |  | |_  __ _| | ___   __ _
 *     | |  | | |/ _` | |/ _ \ / _` |
 *     | |__| | | (_| | | (_) | (_| |
 *     |_____/|_|\__,_|_|\___/ \__, |
 *                              __/ |
-*                             |___/ 
+*                             |___/
 *     Dialog Windows
 */
-                         
-  
+
+
   //show dialog message
   $('.dialogTrigger[data-dialog-id]').on('click', function(){
     var dialogID = $(this).data('dialog-id');
@@ -1934,14 +1909,14 @@ $(document).ready(function() { "use strict";
 
     var dialogID = id,
         $element = $('.dialog[data-dialog-id="' + dialogID + '"]');
-        
+
     if (!$element.is(':visible')){
       $element.addClass('reveal').slideDown(500,function(){
         $(this).removeClass('reveal').removeClass('hidden');
       });
     }
   }
-  
+
   //hide dialog message
   $('.dialog [data-dialog-action="close"], .dialog [data-dialog-action="hide"]').on('click', function(){
     var $element = $(this).parents('.dialog'),
@@ -1951,27 +1926,27 @@ $(document).ready(function() { "use strict";
         cookieName = ($element.data('cookie-name')) ? $element.data('cookie-name') : dialogID,
         cookieValue = ($element.data('cookie-value')) ? $element.data('cookie-value') : true,
         cookiePath = $element.data('cookie-path');
-    
+
     $element.addClass('hide').slideUp(500,function(){
       $(this).removeClass('hide');
-      
+
       if (cookieAge && action == "close"){
         $.cookie(cookieName, cookieValue, { expires: cookieAge, path: cookiePath });
       }
     });
   });
-  
+
   //hide dialog message with cookie
   $('.dialog[data-set-cookie]').each(function(index, element) {
     var dialogID = $(element).data('dialog-id'),
         cookieName = ($(element).data('cookie-name')) ? $(element).data('cookie-name') : dialogID,
         cookieValue = ($(element).data('cookie-value')) ? $(element).data('cookie-value') : true;
-        
+
     if ($.cookie(cookieName)){
       $(element).hide();
     }
   });
-  
+
   //links
   $('.dialog [data-href]').on('click', function(){
     if ($(this).data('target')){
@@ -2008,28 +1983,28 @@ $(document).ready(function() { "use strict";
       }, timeoutDelay);
     }
   });
-  
+
   //submit form
   $('.dialog [data-type="submit"]').click(function(){
     $(this).parents('form').submit();
   });
-  
+
 
 
 
 /***
-*       _____            _             _     ______                   
-*      / ____|          | |           | |   |  ____|                  
-*     | |     ___  _ __ | |_ __ _  ___| |_  | |__ ___  _ __ _ __ ___  
-*     | |    / _ \| '_ \| __/ _` |/ __| __| |  __/ _ \| '__| '_ ` _ \ 
+*       _____            _             _     ______
+*      / ____|          | |           | |   |  ____|
+*     | |     ___  _ __ | |_ __ _  ___| |_  | |__ ___  _ __ _ __ ___
+*     | |    / _ \| '_ \| __/ _` |/ __| __| |  __/ _ \| '__| '_ ` _ \
 *     | |___| (_) | | | | || (_| | (__| |_  | | | (_) | |  | | | | | |
 *      \_____\___/|_| |_|\__\__,_|\___|\__| |_|  \___/|_|  |_| |_| |_|
-*                                                                     
+*
 *     Ajax Contact Form
 */
 
   $('#contact-form, [data-ajax-form]').each(function(index, element) {
-    $(element).ajaxForm(function() { 
+    $(element).ajaxForm(function() {
       var $ajaxForm = $(element),
           $ajaxFormButton = $(element).find('[type="submit"]'),
           ajaxFormButtonIsInput = $ajaxFormButton.is('input') ? true : false,
@@ -2037,14 +2012,14 @@ $(document).ready(function() { "use strict";
           successClass = $ajaxFormButton.data('success-class') ? $ajaxFormButton.data('success-class') : "green",
           defaultText = ajaxFormButtonIsInput ? $ajaxFormButton.val() : $ajaxFormButton.html(),
           defaultClasses = $ajaxFormButton.attr('class');
-          
+
       if (ajaxFormButtonIsInput) {
         $ajaxFormButton.val(successText);
       } else {
         $ajaxFormButton.text(successText)
       }
       $ajaxFormButton.addClass(successClass);
-      
+
       setTimeout(function(){
         if (ajaxFormButtonIsInput) {
           $ajaxFormButton.val(defaultText);
@@ -2063,7 +2038,7 @@ $(document).ready(function() { "use strict";
 
 
 /***
-*       _____                       _ 
+*       _____                       _
 *      / ____|                     | |
 *     | (___   ___  _   _ _ __   __| |
 *      \___ \ / _ \| | | | '_ \ / _` |
@@ -2111,13 +2086,13 @@ $(document).ready(function() { "use strict";
 
 
 /***
-*                           _               
-*         /\               | |              
-*        /  \   _ __   __ _| |_   _ _______ 
+*                           _
+*         /\               | |
+*        /  \   _ __   __ _| |_   _ _______
 *       / /\ \ | '_ \ / _` | | | | |_  / _ \
 *      / ____ \| | | | (_| | | |_| |/ /  __/
 *     /_/    \_\_| |_|\__,_|_|\__, /___\___|
-*                              __/ |        
+*                              __/ |
 *                             |___/
 *
 *     Analyze Devices and Browsers
@@ -2133,7 +2108,7 @@ if(window.isMobile){$html.addClass('mobile');}else{$html.addClass('desktop');}
 //Detect Browser
 window.isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 window.isSafari = /^((?!chrome).)*safari/i.test(navigator.userAgent);
-window.isChrome = /chrom(e|ium)/.test(navigator.userAgent.toLowerCase()); 
+window.isChrome = /chrom(e|ium)/.test(navigator.userAgent.toLowerCase());
 window.isChromeiOS = navigator.userAgent.match('CriOS');
 window.isMSIE = navigator.userAgent.match('MSIE');
 window.isEdge = navigator.userAgent.match('Edge');
