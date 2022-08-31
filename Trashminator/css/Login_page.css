@@ -7,16 +7,12 @@ body {
   color: black;
   margin: 0;
   font-size: 12px;
-  background: whitesmoke;
   overscroll-behavior: none;
   font-family: "Inter", sans-serif;
   display: block;
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 400px) {
-  .text {font-size: 11px}
-}
+
 
 
 @keyframes navLinkFade {
@@ -34,7 +30,6 @@ body {
   color: black;
   padding: 130px 0 10% 0;
   font-size: 12px;
-  background-color: whitesmoke;
   overscroll-behavior: none;
   font-family: "Inter", sans-serif;
   display: grid;
@@ -200,4 +195,3 @@ form .field input[type="submit"]{
   align-items: center;
   justify-content: center;
 }
-
