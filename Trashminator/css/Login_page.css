@@ -39,14 +39,6 @@ body {
   }
 }
 
-@keyframes fadein {
-  from{
-      opacity: 0;
-  }
-  to{
-      opacity: 1;
-  }
-}
 
 .wrapper-config {
   color: black;
