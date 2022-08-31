@@ -336,10 +336,18 @@
 
             <div class="modal_container">
               <div class="upload_modal">
-                <h1>Upload a video</h1>
-                <a onclick='return close_popup()'><span class="dot_circle_close"><i class="fa-solid fa-xmark fa-xl"></i></span></a>
-                <div class="upload_file_section">
-                  <h3>Upload your files here and we will do the rest :)</h3>
+                <div style="position: relative;">
+                  <h1>Upload a video</h1>
+                  <a onclick='return close_popup()'><span class="dot_circle_close"><i
+                        class="fa-solid fa-xmark fa-xl"></i></span></a>
+                </div>
+
+                <div class="upload_file_section" style="position: absolute; top: 30%;">
+                  <h3>Upload your files here and we will do the rest</h3>
+                  <lord-icon src="https://cdn.lordicon.com/btnwcdpq.json" trigger="hover"
+                    style="width:200px;height:200px">
+                  </lord-icon>
+                  <input type="file" id="file_upload" class="center-block-input" name="file_upload" accept="video/*" />
                 </div>
               </div>
             </div>

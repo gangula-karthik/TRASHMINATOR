@@ -3407,13 +3407,13 @@ html.mobile .showForMobileInline {
     padding: 0
 }
 
-#heading_clean_up_locations{
+#heading_clean_up_locations {
     font-size: 50px;
     color: #fff;
     margin-bottom: 50px;
 }
 
-.upload_option{
+.upload_option {
     background-color: white;
     margin-bottom: 30px;
     margin: auto;
@@ -3423,7 +3423,7 @@ html.mobile .showForMobileInline {
     width: 80%;
 }
 
-.upload_option h1{
+.upload_option h1 {
     font-size: 30px;
     color: #202020;
     margin-bottom: 20px;
@@ -3432,7 +3432,7 @@ html.mobile .showForMobileInline {
 
 }
 
-.upload_option span{
+.upload_option span {
     background: -webkit-linear-gradient(left, #304cff, #00ddff);
     border: none;
     color: white;
@@ -3449,7 +3449,7 @@ html.mobile .showForMobileInline {
     font-size: 20px;
 }
 
-.popup_for_upload{
+.popup_for_upload {
     background-color: white;
     color: black;
     height: 700px;
@@ -3464,7 +3464,7 @@ html.mobile .showForMobileInline {
 .upload_modal {
     position: absolute;
     padding: 2%;
-    width: 80%;
+    width: 70%;
     height: 70%;
     z-index: 15;
     top: 50%;
@@ -3477,9 +3477,10 @@ html.mobile .showForMobileInline {
     display: none;
     color: black;
     margin-top: 60px;
-  }
+}
 
-  .dot_circle_close{
+
+.dot_circle_close {
     height: 50px;
     width: 50px;
     background-color: rgb(198, 198, 198);
@@ -3487,42 +3488,54 @@ html.mobile .showForMobileInline {
     display: inline-block;
     padding: 16px;
     float: right;
-  }
+}
 
-  .upload_files_section{
-    margin-top: 20px;
-  }
+.upload_file_section {
+    border-radius: 5px;
+    width: 40%;
+    height: 60%;
+    background-color: rgb(198, 198, 198);
+    padding: 40px;
+    display: grid;
+    place-items: center;
+}
 
-  @keyframes myfade {
+.center-block-input {
+    margin: auto;
+    display: block;
+}
+
+
+@keyframes myfade {
     from {
-      opacity: .4
+        opacity: .4
     }
-  
-    to {
-      opacity: 1
-    }
-  }
 
-  @keyframes fadeOut {
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeOut {
     from {
-      opacity: 1
+        opacity: 1
     }
-  
-    to {
-      opacity: 0
-    }
-  }
 
-  .upload_modal h1{
+    to {
+        opacity: 0
+    }
+}
+
+.upload_modal h1 {
     font-weight: 600;
     font-size: 40px;
     color: #202020;
     font-family: Inter, sans-serif;
     float: left;
-  }
+}
 
-  
-  .modal_container{
+
+.modal_container {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.8);
     top: 0;
@@ -3531,10 +3544,10 @@ html.mobile .showForMobileInline {
     height: 100vh;
     width: 100vw;
     display: none;
-  }
-  
+}
 
-.activated_popup_for_upload{
+
+.activated_popup_for_upload {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.8);
     top: 0;
