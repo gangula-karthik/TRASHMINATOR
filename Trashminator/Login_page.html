@@ -100,7 +100,7 @@
   <p id="length" class="invalid">Minimum <b>8 characters</b></p>
 </div>
               <div class="field">
-                <input type="password" placeholder="Confirm Password" required>
+                <input type="password" id="cfmpass" placeholder="Confirm Password" onchange="matchPassword()" required>
               </div>
               <div class="field">
                 <input onclick="signup()" type="submit" value="Signup">
@@ -110,6 +110,18 @@
         </div>
       </div>
     </div>
+    <script>
+function matchPassword() {
+  var pw1 = document.getElementById("psw");
+  var pw2 = document.getElementById("cfmpass");
+  if(pw1 != pw2)
+  {
+    alert("Passwords did not match");
+  } else {
+    alert("Password created successfully");
+  }
+}
+</script>
     <script>
     var myInput = document.getElementById("psw");
     var letter = document.getElementById("letter");
