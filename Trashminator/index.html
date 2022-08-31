@@ -2,7 +2,7 @@
 <html>
 <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 <meta charset="UTF-8">
-<script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+<script src="https://kit.fontawesome.com/0cdc6dc863.js" crossorigin="anonymous"></script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/Login_page.css">
@@ -238,8 +238,8 @@
           <li><a href="#download">Download</a></li>
         </ul>
       </div>
-      <div class="right"><a class="button blue gradient" href="#Login">Login</a><a
-          class="button green gradient" href="#download">Get App</a></div>
+      <div class="right"><a class="button blue gradient" href="#Login">Login</a><a class="button green gradient"
+          href="#download">Get App</a></div>
     </div>
     <div class="sections compact hidden">
       <div class="left">
@@ -327,6 +327,50 @@
       <div class="container">
         <div class="wrap ">
           <div class="fix-12-12 restaurant_cards">
+            <h1 id="heading_clean_up_locations">Clean Up Locations</h1>
+
+            <div class="upload_option">
+              <h1>Start a Clean Up Event, Save the World</h1>
+              <a onclick='return show_popup()'><span>Upload <i class="fa-solid fa-plus"></i></span></a>
+            </div>
+
+            <div class="modal_container">
+              <div class="upload_modal">
+                <h1>Upload a video</h1>
+                <a onclick='return close_popup()'><span class="dot_circle_close"><i class="fa-solid fa-xmark fa-xl"></i></span></a>
+                <div class="upload_file_section">
+                  <h3>Upload your files here and we will do the rest :)</h3>
+                </div>
+              </div>
+            </div>
+
+
+            <script>
+              function show_popup() {
+                const modal = document.querySelector('.upload_modal');
+                modal.style.display = "block";
+                modal.style.animation = "myfade .3s ease-in-out";
+                modal.style.pointerEvents = 'auto';
+                const modal_container = document.querySelector('.modal_container');
+                modal_container.style.display = "block";
+                const body = document.querySelector('body');
+                body.style.pointerEvents = 'none';
+                body.style.overflow = "hidden";
+                const navbar = document.querySelector('.navbar');
+                navbar.style.pointerEvents = 'auto';
+              }
+
+              function close_popup() {
+                const modal = document.querySelector('.upload_modal');
+                const modal_container = document.querySelector('.modal_container');
+                modal.style.animation = "fadeOut 0.5s ease-in-out";
+                const body = document.querySelector('body');
+                modal.style.pointerEvents = 'none';
+                modal_container.style.display = "none";
+                body.style.pointerEvents = 'auto';
+                body.style.overflow = "scroll";
+              }
+            </script>
 
             <div class="dining_card card_shadow">
               <div class="card_header card_image">
@@ -334,7 +378,7 @@
               </div>
               <div class="card_body">
                 <h1>Changi Beach Park</h1>
-                <ol>
+                <ol id="list_">
                   <li>Trash level: 45%</li>
                   <li>Points: 70xp</li>
                   <li>Participants: 15</li>
@@ -673,156 +717,156 @@
     <div class="content">
       <div class="container">
         <div class="wrap">
-            <div class="wrapper-config">
-              <div class="wrapper">
-                <div class="title-text">
-                  <div class="title login">Login Form</div>
-                  <div class="title signup">Signup Form</div>
+          <div class="wrapper-config">
+            <div class="wrapper">
+              <div class="title-text">
+                <div class="title login">Login Form</div>
+                <div class="title signup">Signup Form</div>
+              </div>
+              <div class="form-container">
+                <div class="slide-controls">
+                  <input type="radio" name="slider" id="login" checked>
+                  <input type="radio" name="slider" id="signup">
+                  <label for="login" class="myslide login">Login</label>
+                  <label for="signup" class="myslide signup">Signup</label>
+                  <div class="slide-tab"></div>
                 </div>
-                <div class="form-container">
-                  <div class="slide-controls">
-                    <input type="radio" name="slider" id="login" checked>
-                    <input type="radio" name="slider" id="signup">
-                    <label for="login" class="myslide login">Login</label>
-                    <label for="signup" class="myslide signup">Signup</label>
-                    <div class="slide-tab"></div>
-                  </div>
-                  <div class="form-inner">
-                    <form action="#" class="login">
-                      <div class="field">
-                        <input type="text" placeholder="Username" required>
-                      </div>
-                      <div class="field">
-                        <input type="password" placeholder="Password" required>
-                      </div>
-                      <div class="pass-link"><a href="#"><br>Forgot password?<br></a></div>
-                      <div class="field">
-                        <input type="submit" value="Login">
-                      </div>
-                      <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
-                    </form>
-                    <form class="signup">
-                      <div class="field">
-                        <input type="text" placeholder="User" required>
-                      </div>
-                      <div class="field">
-                        <input type="email" placeholder="Email Address" required>
-                      </div>
-                      <div class="field">
-                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="psw"
-                          placeholder="Password" required>
-                      </div>
-                      <div id="message">
-                        <h3>Password must contain the following:</h3>
-                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                        <p id="number" class="invalid">A <b>number</b></p>
-                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                      </div>
-                      <div class="field">
-                        <input type="password" id="cfmpass" placeholder="Confirm Password" onchange="matchPassword()"
-                          required>
-                      </div>
-                      <div class="field">
-                        <input onclick="signup()" type="submit" value="Signup">
-                      </div>
-                    </form>
-                  </div>
+                <div class="form-inner">
+                  <form action="#" class="login">
+                    <div class="field">
+                      <input type="text" placeholder="Username" required>
+                    </div>
+                    <div class="field">
+                      <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="pass-link"><a href="#"><br>Forgot password?<br></a></div>
+                    <div class="field">
+                      <input type="submit" value="Login">
+                    </div>
+                    <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
+                  </form>
+                  <form class="signup">
+                    <div class="field">
+                      <input type="text" placeholder="User" required>
+                    </div>
+                    <div class="field">
+                      <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="field">
+                      <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="psw"
+                        placeholder="Password" required>
+                    </div>
+                    <div id="message">
+                      <h3>Password must contain the following:</h3>
+                      <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                      <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                      <p id="number" class="invalid">A <b>number</b></p>
+                      <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                    </div>
+                    <div class="field">
+                      <input type="password" id="cfmpass" placeholder="Confirm Password" onchange="matchPassword()"
+                        required>
+                    </div>
+                    <div class="field">
+                      <input onclick="signup()" type="submit" value="Signup">
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-            <script>
-              function matchPassword() {
-                var pw1 = document.getElementById("psw");
-                var pw2 = document.getElementById("cfmpass");
-                if (pw1 != pw2) {
-                  alert("Passwords did not match");
-                } else {
-                  alert("Password created successfully");
-                }
+          </div>
+          <script>
+            function matchPassword() {
+              var pw1 = document.getElementById("psw");
+              var pw2 = document.getElementById("cfmpass");
+              if (pw1 != pw2) {
+                alert("Passwords did not match");
+              } else {
+                alert("Password created successfully");
               }
-            </script>
-            <script>
-              var myInput = document.getElementById("psw");
-              var letter = document.getElementById("letter");
-              var capital = document.getElementById("capital");
-              var number = document.getElementById("number");
-              var length = document.getElementById("length");
+            }
+          </script>
+          <script>
+            var myInput = document.getElementById("psw");
+            var letter = document.getElementById("letter");
+            var capital = document.getElementById("capital");
+            var number = document.getElementById("number");
+            var length = document.getElementById("length");
 
-              // When the user clicks on the password field, show the message box
-              myInput.onfocus = function () {
-                document.getElementById("message").style.display = "block";
+            // When the user clicks on the password field, show the message box
+            myInput.onfocus = function () {
+              document.getElementById("message").style.display = "block";
+            }
+
+            // When the user clicks outside of the password field, hide the message box
+            myInput.onblur = function () {
+              document.getElementById("message").style.display = "none";
+            }
+
+            // When the user starts to type something inside the password field
+            myInput.onkeyup = function () {
+              // Validate lowercase letters
+              var lowerCaseLetters = /[a-z]/g;
+              if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+              } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
               }
 
-              // When the user clicks outside of the password field, hide the message box
-              myInput.onblur = function () {
-                document.getElementById("message").style.display = "none";
+              // Validate capital letters
+              var upperCaseLetters = /[A-Z]/g;
+              if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+              } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
               }
 
-              // When the user starts to type something inside the password field
-              myInput.onkeyup = function () {
-                // Validate lowercase letters
-                var lowerCaseLetters = /[a-z]/g;
-                if (myInput.value.match(lowerCaseLetters)) {
-                  letter.classList.remove("invalid");
-                  letter.classList.add("valid");
-                } else {
-                  letter.classList.remove("valid");
-                  letter.classList.add("invalid");
-                }
-
-                // Validate capital letters
-                var upperCaseLetters = /[A-Z]/g;
-                if (myInput.value.match(upperCaseLetters)) {
-                  capital.classList.remove("invalid");
-                  capital.classList.add("valid");
-                } else {
-                  capital.classList.remove("valid");
-                  capital.classList.add("invalid");
-                }
-
-                // Validate numbers
-                var numbers = /[0-9]/g;
-                if (myInput.value.match(numbers)) {
-                  number.classList.remove("invalid");
-                  number.classList.add("valid");
-                } else {
-                  number.classList.remove("valid");
-                  number.classList.add("invalid");
-                }
-
-                // Validate length
-                if (myInput.value.length >= 8) {
-                  length.classList.remove("invalid");
-                  length.classList.add("valid");
-                } else {
-                  length.classList.remove("valid");
-                  length.classList.add("invalid");
-                }
+              // Validate numbers
+              var numbers = /[0-9]/g;
+              if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+              } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
               }
-            </script>
 
-            <script>
-              const loginForm = document.querySelector("form.login");
-              const signupForm = document.querySelector("form.signup");
-              const loginBtn = document.querySelector("label.login");
-              const signupBtn = document.querySelector("label.signup");
-              const signupLink = document.querySelector(".signup-link a");
-              const loginText = document.querySelector(".title-text .login");
-              const signupText = document.querySelector(".title-text .signup");
-              signupBtn.onclick = (() => {
-                loginForm.style.marginLeft = "-50%";
-                loginText.style.marginLeft = "-50%";
-              });
-              loginBtn.onclick = (() => {
-                loginForm.style.marginLeft = "0%";
-                loginText.style.marginLeft = "0%";
-              });
-              signupLink.onclick = (() => {
-                signupBtn.click();
-                return false;
-              });
-            </script>
+              // Validate length
+              if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+              } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+              }
+            }
+          </script>
+
+          <script>
+            const loginForm = document.querySelector("form.login");
+            const signupForm = document.querySelector("form.signup");
+            const loginBtn = document.querySelector("label.login");
+            const signupBtn = document.querySelector("label.signup");
+            const signupLink = document.querySelector(".signup-link a");
+            const loginText = document.querySelector(".title-text .login");
+            const signupText = document.querySelector(".title-text .signup");
+            signupBtn.onclick = (() => {
+              loginForm.style.marginLeft = "-50%";
+              loginText.style.marginLeft = "-50%";
+            });
+            loginBtn.onclick = (() => {
+              loginForm.style.marginLeft = "0%";
+              loginText.style.marginLeft = "0%";
+            });
+            signupLink.onclick = (() => {
+              signupBtn.click();
+              return false;
+            });
+          </script>
         </div>
       </div>
     </div>

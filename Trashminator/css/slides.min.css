@@ -3407,6 +3407,144 @@ html.mobile .showForMobileInline {
     padding: 0
 }
 
+#heading_clean_up_locations{
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.upload_option{
+    background-color: white;
+    margin-bottom: 30px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 20px;
+    width: 80%;
+}
+
+.upload_option h1{
+    font-size: 30px;
+    color: #202020;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+
+}
+
+.upload_option span{
+    background: -webkit-linear-gradient(left, #304cff, #00ddff);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.popup_for_upload{
+    background-color: white;
+    color: black;
+    height: 700px;
+    border-radius: 30px;
+    display: flex;
+    margin: auto;
+    margin-top: 100px;
+    width: 80%;
+    z-index: 500;
+}
+
+.upload_modal {
+    position: absolute;
+    padding: 2%;
+    width: 80%;
+    height: 70%;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    overflow-x: none;
+    overflow-y: scroll;
+    display: none;
+    color: black;
+    margin-top: 60px;
+  }
+
+  .dot_circle_close{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(198, 198, 198);
+    border-radius: 50%;
+    display: inline-block;
+    padding: 16px;
+    float: right;
+  }
+
+  .upload_files_section{
+    margin-top: 20px;
+  }
+
+  @keyframes myfade {
+    from {
+      opacity: .4
+    }
+  
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1
+    }
+  
+    to {
+      opacity: 0
+    }
+  }
+
+  .upload_modal h1{
+    font-weight: 600;
+    font-size: 40px;
+    color: #202020;
+    font-family: Inter, sans-serif;
+    float: left;
+  }
+
+  
+  .modal_container{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 15;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+  }
+  
+
+.activated_popup_for_upload{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 15;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+}
+
 .popup.fullscreen .embedVideo {
     height: 100vh;
     padding-bottom: 0
