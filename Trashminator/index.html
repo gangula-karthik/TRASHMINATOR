@@ -347,7 +347,11 @@
                   <lord-icon src="https://cdn.lordicon.com/btnwcdpq.json" trigger="hover"
                     style="width:200px;height:200px">
                   </lord-icon>
-                  <input type="file" id="file_upload" class="center-block-input" name="file_upload" accept="video/*" />
+                  <form action="http://localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+                    <input type="file" id="file_upload" class="center-block-input" name="file_upload"
+                      accept="video/*" />
+                    <input type="submit" value="Upload" class="center-block-input" />
+                  </form>
                 </div>
               </div>
             </div>
