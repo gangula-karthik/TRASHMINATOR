@@ -31,11 +31,20 @@ body {
 @keyframes navLinkFade {
   from{
       opacity: 0;
-      transform: translateX(50px);
+      transform: translateY(200px);
   }
   to{
       opacity: 1;
-      transform: translateX(0px);
+      transform: translateY(-50px);
+  }
+}
+
+@keyframes fadein {
+  from{
+      opacity: 0;
+  }
+  to{
+      opacity: 1;
   }
 }
 
@@ -58,6 +67,7 @@ body {
   padding: 40px;
   border-radius: 5px;
   box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  animation: navLinkFade 3s forwards;
 }
 
 .wrapper .title-text {
