@@ -104,7 +104,7 @@ body {
   z-index: 0;
   border-radius: 5px;
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+  background: -webkit-linear-gradient(left, #304cff, #00ddff);
 }
 
 input[type="radio"]{
@@ -151,7 +151,7 @@ form .field input{
 }
 
 .form-inner form .field input:focus{
-  border-color: #fc83bb;
+  border-color: #304cff;
 }
 
 .form-inner form .pass-link {
@@ -160,7 +160,7 @@ form .field input{
 
 .form-inner form .pass-link a,
 .form-inner form .signup-link a {
-  color: #fa4299;
+  color: #304cff;
   text-decoration: none;
 }
 
@@ -182,7 +182,7 @@ form .field input[type="submit"]{
   padding-left: 0px;
   border: none;
   cursor: pointer;
-  background: -webkit-linear-gradient(left, #a445b2,#fa4299);
+  background: -webkit-linear-gradient(left, #304cff, #00ddff);
 }
 
 /*removing the scroll bar*/

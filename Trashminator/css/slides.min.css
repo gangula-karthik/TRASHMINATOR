@@ -7126,7 +7126,7 @@ html:not(.page-loaded) .dialog {
     #logo {
         font-size: 1.5em;
         position: absolute;
-        top: 35%;
+        top: 33% !important;
     }
 }
 
