@@ -139,43 +139,44 @@ img {
 
 #button_cleanup{
     border-radius: 100px;
-    display: block;
-    width: 190px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 18px;
-    font-family: "Inter", sans-serif;
-    text-decoration: none;
-    color: white;
-    letter-spacing: 2px;
-    text-align: center;
-    position: relative;
-    transition: all .35s;
-    background: rgb(48, 76, 255);
-    background: linear-gradient(69deg, rgba(48, 76, 255, 1) 29%, rgba(0, 162, 244, 1) 94%);
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+background: rgb(48,76,255);
+background: linear-gradient(69deg, rgba(48,76,255,1) 29%, rgba(0,162,244,1) 94%);
 }
 
 #button_cleanup span {
     position: relative;
-    z-index: 2;
-    border-radius: 100px;
+  z-index: 2;
+  border-radius: 100px;
 }
 
 #button_cleanup:after {
     position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 45px;
-    height: 100%;
-    background: rgb(48, 76, 255);
-    transition: all .5s;
-    border-radius: 100px;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 100%;
+  background: #304cff;
+  transition: all .4s;
+  border-radius: 100px;
 }
 
 #button_cleanup:hover {
     color: #fff;
-    border-radius: 100px;
+  border-radius: 100px;
+  opacity: 1 !important;
 }
 
 #button_cleanup:hover:after {
