@@ -6,7 +6,7 @@ html {
     -webkit-backface-visibility: hidden;
 }
 
-#logo{
+#logo {
     font-family: "Inter", sans-serif;
     font-weight: 800;
     font-size: 5rem;
@@ -15,17 +15,17 @@ html {
 }
 
 .restaurant_cards>.dining_card {
-  --padding: 1rem;
-  background: rgb(255, 255, 255);
-  border: 1px solid rgb(133, 133, 133);
-  border-radius: 0.5rem;
-  font-size: 20px;
-  max-width: 850px;
-  margin: 0 auto;
-  overflow: hidden;
-  margin-bottom: 5%;
-  box-shadow: 0 2px 5px 0;
-  border: none;
+    --padding: 1rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(133, 133, 133);
+    border-radius: 0.5rem;
+    font-size: 20px;
+    max-width: 850px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 5%;
+    box-shadow: 0 2px 5px 0;
+    border: none;
 }
 
 
@@ -40,6 +40,149 @@ html,
 img {
     max-width: 100%
 }
+
+.restaurant_cards>.dining_card {
+    --padding: 1rem;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(133, 133, 133);
+    border-radius: 0.5rem;
+    font-size: 20px;
+    max-width: 850px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 5%;
+    box-shadow: 0 2px 5px 0;
+    border: none;
+}
+
+.restaurant_cards>.dining_card~.dining_card {
+    margin-top: 2%;
+}
+
+
+.card.card_shadow {
+    border: none;
+    box-shadow: 0 2px 5px 0;
+}
+
+.card_header.card_image {
+    overflow: hidden;
+    padding: 0;
+}
+
+.card_header.card_image>img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    transition: 200ms transform ease-in-out;
+}
+
+.card:hover>.card_header.card_image>img {
+    transform: scale(1.029);
+}
+
+.card_header {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding: var(--padding);
+    padding-bottom: 0;
+}
+
+.card_body {
+    font-size: 0.9rem;
+    padding: 0 var(--padding);
+    font-family: "Inter", sans-serif;
+    color: black;
+}
+
+.card_body h1 {
+    font-weight: bold;
+}
+
+.card-footer {
+    margin-top: 1rem;
+    padding: var(--padding);
+    padding-top: 0;
+}
+
+/* restaurant cards button */
+/* .reservation_button { */
+    /* --color: #304cff;
+    background-color: var(--color);
+    background: -webkit-linear-gradient(left, #304cff, #00a2ff, #304cff);
+    color: white;
+    border: none;
+    padding: .5em .75em;
+    border-radius: .5em;
+    cursor: pointer;
+    border-radius: 100px;
+    float: right;
+    margin-bottom: 2%;
+    margin-right: 25px;
+    width: 160px;
+    height: 40px;
+    font-family: "Inter", sans-serif;
+    line-height: 0px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.reservation_button:hover,
+.reservation_button:focus {
+    background: #00ddff;
+    transition: 550ms smooth ease-in-out;
+    color: black;
+} */
+
+#button_cleanup{
+    border-radius: 100px;
+    display: block;
+    width: 190px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    background: rgb(48, 76, 255);
+    background: linear-gradient(69deg, rgba(48, 76, 255, 1) 29%, rgba(0, 162, 244, 1) 94%);
+}
+
+#button_cleanup span {
+    position: relative;
+    z-index: 2;
+    border-radius: 100px;
+}
+
+#button_cleanup:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: 100%;
+    background: rgb(48, 76, 255);
+    transition: all .5s;
+    border-radius: 100px;
+}
+
+#button_cleanup:hover {
+    color: #fff;
+    border-radius: 100px;
+}
+
+#button_cleanup:hover:after {
+    width: 100%;
+    border-radius: 100px;
+}
+
 
 .button.actionButton svg,
 .button.play svg,
@@ -7123,6 +7266,7 @@ html:not(.page-loaded) .dialog {
         display: block;
         margin: 30px auto
     }
+
     #logo {
         font-size: 1.5em;
         position: absolute;

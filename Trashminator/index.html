@@ -238,8 +238,8 @@
           <li><a href="#download">Download</a></li>
         </ul>
       </div>
-      <div class="right"><a class="button blue gradient" href="#Login">Login</a><a
-          class="button green gradient" href="#" target="_blank">Get App</a></div>
+      <div class="right"><a class="button blue gradient" href="#Login">Login</a><a class="button green gradient"
+          href="#" target="_blank">Get App</a></div>
     </div>
     <div class="sections compact hidden">
       <div class="left">
@@ -326,7 +326,59 @@
     <div class="content">
       <div class="container">
         <div class="wrap ">
-          <div class="fix-12-12">
+          <div class="fix-12-12 restaurant_cards">
+
+            <div class="dining_card card_shadow">
+              <div class="card_header card_image">
+                <img src="images/r1.png" alt="La Maison" />
+              </div>
+              <div class="card_body">
+                <h1>La Maison 1888</h1>
+                <p>The destination dining establishment of The Oxford Suites, La Maison 1888 exudes timeless elegance
+                  and sophistication—a perfect dining room for an extraordinary experience of classic French cuisine.
+                </p>
+                <br>
+              </div>
+              <div class="card_footer">
+                <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
+                <a id="button_cleanup" href="#"><span class="reservation_button">DIRECTIONS</span></a>
+              </div>
+            </div>
+
+            <div class="dining_card card_shadow">
+              <div class="card_header card_image">
+                <img src="images/r1.png" alt="La Maison" />
+              </div>
+              <div class="card_body">
+                <h1>La Maison 1888</h1>
+                <p>The destination dining establishment of The Oxford Suites, La Maison 1888 exudes timeless elegance
+                  and sophistication—a perfect dining room for an extraordinary experience of classic French cuisine.
+                </p>
+                <br>
+              </div>
+
+              <div class="card_footer">
+                <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
+                <a id="button_cleanup" href="#"><span class="reservation_button">DIRECTIONS</span></a>
+              </div>
+            </div>
+
+            <div class="dining_card card_shadow">
+              <div class="card_header card_image">
+                <img src="images/r1.png" alt="La Maison" />
+              </div>
+              <div class="card_body">
+                <h1>La Maison 1888</h1>
+                <p>The destination dining establishment of The Oxford Suites, La Maison 1888 exudes timeless elegance
+                  and sophistication—a perfect dining room for an extraordinary experience of classic French cuisine.
+                </p>
+                <br>
+              </div>
+              <div class="card_footer">
+                <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
+                <a id="button_cleanup" href="#"><span class="reservation_button">DIRECTIONS</span></a>
+              </div>
+            </div>
             <!-- <ul class="grid">
               <li class="col-6-12 left">
                 <h1 class="ae-2 fromLeft">Krabi Island</h1>
@@ -455,7 +507,8 @@
               <li class="col-7-12 left">
                 <h1 class="ae-2 fromRight">Trashcam</h1>
                 <div class="ae-3 fromRight">
-                  <p class="opacity-8">Trashcamera or Trashcam in short is the webcam ability to detect the trash in the area.</p>
+                  <p class="opacity-8">Trashcamera or Trashcam in short is the webcam ability to detect the trash in the
+                    area.</p>
                 </div>
                 <div class="relative">
                   <img src="assets/img/icon-2.png" class="ae-3 fromCenter app-26" alt="app" />
@@ -585,7 +638,7 @@
   </section>
 
   <!-- Slide 7 (#95) -->
-  <section class="slide fade-6 kenBurns" data-name="download">
+  <section class="slide fade-6 kenBurns" id="appdownload" data-name="download">
     <div class="content">
       <div class="container">
         <div class="wrap">
@@ -614,6 +667,7 @@
     <div class="content">
       <div class="container">
         <div class="wrap">
+
           <body>
 
             <div class="wrapper-config">
@@ -652,17 +706,19 @@
                         <input type="email" placeholder="Email Address" required>
                       </div>
                       <div class="field">
-                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="psw" placeholder="Password" required>
+                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="psw"
+                          placeholder="Password" required>
                       </div>
                       <div id="message">
-          <h3>Password must contain the following:</h3>
-          <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-          <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-          <p id="number" class="invalid">A <b>number</b></p>
-          <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-        </div>
+                        <h3>Password must contain the following:</h3>
+                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                        <p id="number" class="invalid">A <b>number</b></p>
+                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                      </div>
                       <div class="field">
-                        <input type="password" id="cfmpass" placeholder="Confirm Password" onchange="matchPassword()" required>
+                        <input type="password" id="cfmpass" placeholder="Confirm Password" onchange="matchPassword()"
+                          required>
                       </div>
                       <div class="field">
                         <input onclick="signup()" type="submit" value="Signup">
@@ -673,75 +729,74 @@
               </div>
             </div>
             <script>
-        function matchPassword() {
-          var pw1 = document.getElementById("psw");
-          var pw2 = document.getElementById("cfmpass");
-          if(pw1 != pw2)
-          {
-            alert("Passwords did not match");
-          } else {
-            alert("Password created successfully");
-          }
-        }
-        </script>
+              function matchPassword() {
+                var pw1 = document.getElementById("psw");
+                var pw2 = document.getElementById("cfmpass");
+                if (pw1 != pw2) {
+                  alert("Passwords did not match");
+                } else {
+                  alert("Password created successfully");
+                }
+              }
+            </script>
             <script>
-            var myInput = document.getElementById("psw");
-            var letter = document.getElementById("letter");
-            var capital = document.getElementById("capital");
-            var number = document.getElementById("number");
-            var length = document.getElementById("length");
+              var myInput = document.getElementById("psw");
+              var letter = document.getElementById("letter");
+              var capital = document.getElementById("capital");
+              var number = document.getElementById("number");
+              var length = document.getElementById("length");
 
-            // When the user clicks on the password field, show the message box
-            myInput.onfocus = function() {
-              document.getElementById("message").style.display = "block";
-            }
-
-            // When the user clicks outside of the password field, hide the message box
-            myInput.onblur = function() {
-              document.getElementById("message").style.display = "none";
-            }
-
-            // When the user starts to type something inside the password field
-            myInput.onkeyup = function() {
-              // Validate lowercase letters
-              var lowerCaseLetters = /[a-z]/g;
-              if(myInput.value.match(lowerCaseLetters)) {
-                letter.classList.remove("invalid");
-                letter.classList.add("valid");
-              } else {
-                letter.classList.remove("valid");
-                letter.classList.add("invalid");
-            }
-
-              // Validate capital letters
-              var upperCaseLetters = /[A-Z]/g;
-              if(myInput.value.match(upperCaseLetters)) {
-                capital.classList.remove("invalid");
-                capital.classList.add("valid");
-              } else {
-                capital.classList.remove("valid");
-                capital.classList.add("invalid");
+              // When the user clicks on the password field, show the message box
+              myInput.onfocus = function () {
+                document.getElementById("message").style.display = "block";
               }
 
-              // Validate numbers
-              var numbers = /[0-9]/g;
-              if(myInput.value.match(numbers)) {
-                number.classList.remove("invalid");
-                number.classList.add("valid");
-              } else {
-                number.classList.remove("valid");
-                number.classList.add("invalid");
+              // When the user clicks outside of the password field, hide the message box
+              myInput.onblur = function () {
+                document.getElementById("message").style.display = "none";
               }
 
-              // Validate length
-              if(myInput.value.length >= 8) {
-                length.classList.remove("invalid");
-                length.classList.add("valid");
-              } else {
-                length.classList.remove("valid");
-                length.classList.add("invalid");
+              // When the user starts to type something inside the password field
+              myInput.onkeyup = function () {
+                // Validate lowercase letters
+                var lowerCaseLetters = /[a-z]/g;
+                if (myInput.value.match(lowerCaseLetters)) {
+                  letter.classList.remove("invalid");
+                  letter.classList.add("valid");
+                } else {
+                  letter.classList.remove("valid");
+                  letter.classList.add("invalid");
+                }
+
+                // Validate capital letters
+                var upperCaseLetters = /[A-Z]/g;
+                if (myInput.value.match(upperCaseLetters)) {
+                  capital.classList.remove("invalid");
+                  capital.classList.add("valid");
+                } else {
+                  capital.classList.remove("valid");
+                  capital.classList.add("invalid");
+                }
+
+                // Validate numbers
+                var numbers = /[0-9]/g;
+                if (myInput.value.match(numbers)) {
+                  number.classList.remove("invalid");
+                  number.classList.add("valid");
+                } else {
+                  number.classList.remove("valid");
+                  number.classList.add("invalid");
+                }
+
+                // Validate length
+                if (myInput.value.length >= 8) {
+                  length.classList.remove("invalid");
+                  length.classList.add("valid");
+                } else {
+                  length.classList.remove("valid");
+                  length.classList.add("invalid");
+                }
               }
-            }
             </script>
 
             <script>
