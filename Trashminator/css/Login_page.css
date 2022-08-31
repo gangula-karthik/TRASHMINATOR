@@ -12,12 +12,13 @@ body {
   display: block;
 }
 
+
 #message {
   display:none;
   background: #f1f1f1;
   color: #000;
   position: relative;
-  padding: 20px;
+  padding: 10px;
   margin-top: 10px;
 }
 
