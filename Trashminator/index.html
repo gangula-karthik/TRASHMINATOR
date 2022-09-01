@@ -237,8 +237,8 @@
           <li><a href="index.html#Leaderboard">Leaderboard</a></li>
         </ul>
       </div>
-      <div class="right"><a class="button blue gradient" href="Login_page.html">Login</a><a class="button green gradient"
-          href="Download_page.html">Get App</a></div>
+      <div class="right"><a class="button blue gradient" href="Login_page.html">Login</a><a
+          class="button green gradient" href="Download_page.html">Get App</a></div>
     </div>
     <div class="sections compact hidden">
       <div class="left">
@@ -446,38 +446,7 @@
                 <a id="button_cleanup" href="#"><span class="reservation_button">DIRECTIONS</span></a>
               </div>
             </div>
-            <!-- <ul class="grid">
-              <li class="col-6-12 left">
-                <h1 class="ae-2 fromLeft">Krabi Island</h1>
-                <p class="ae-3 fromLeft"><span class="opacity-8">An electrician isn’t an opinion former, but a graphic
-                    designer is. My argument is that all graphic designers hold high levels of responsibility in
-                    society.</span></p>
-                <ul class="tabs controller uppercase bold ae-4 fromCenter" data-slider-id="60-1">
-                  <li class="selected">Krabi Island</li>
-                  <li>Community</li>
-                  <li>Surfing</li>
-                </ul>
-              </li>
-              <li class="col-6-12 left ae-5 fromCenter">
-                <ul class="slider animated margin-top-4" data-slider-id="60-1">
-                  <li class="selected fromCenter">
-                    <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-1">
-                      <img class="wide" src="assets/img/gallery-60-1.jpg" alt="Video Thumbnail" />
-                    </div>
-                  </li>
-                  <li class="fromCenter">
-                    <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-2">
-                      <img class="wide" src="assets/img/gallery-60-2.jpg" alt="Video Thumbnail" />
-                    </div>
-                  </li>
-                  <li class="fromCenter">
-                    <div class="popupTrigger videoThumbnail shadow rounded" data-popup-id="60-3">
-                      <img class="wide" src="assets/img/gallery-60-3.jpg" alt="Video Thumbnail" />
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul> -->
+
           </div>
 
         </div>
@@ -485,66 +454,6 @@
     </div>
     <div class="background" style="background-image:url(assets/img/background/img-60.jpg)"></div>
   </section>
-
-
-  <!-- Popup Video -->
-  <!-- <div class="popup autoplay" data-popup-id="60-1">
-    <div class="close"><svg>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use>
-      </svg></div>
-    <div class="content">
-      <div class="container">
-        <div class="wrap">
-          <div class="fix-10-12">
-            <div class="embedVideo popupContent">
-              <iframe src="https://player.vimeo.com/video/101231747?color=ff0179&portrait=0" frameborder="0"
-                webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-  <!-- Popup Video -->
-  <!-- <div class="popup autoplay" data-popup-id="60-2">
-    <div class="close"><svg>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use>
-      </svg></div>
-    <div class="content">
-      <div class="container">
-        <div class="wrap">
-          <div class="fix-10-12">
-            <div class="embedVideo popupContent">
-              <iframe src="https://player.vimeo.com/video/101231747?color=ff0179&portrait=0" frameborder="0"
-                webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-  <!-- Popup Video -->
-  <!-- <div class="popup autoplay" data-popup-id="60-3">
-    <div class="close"><svg>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use>
-      </svg></div>
-    <div class="content">
-      <div class="container">
-        <div class="wrap">
-          <div class="fix-10-12">
-            <div class="embedVideo popupContent">
-              <iframe src="https://player.vimeo.com/video/101231747?color=ff0179&portrait=0" frameborder="0"
-                webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
 
   <!-- Slide 3 (#27) -->
@@ -557,32 +466,39 @@
             <ul class="flex verticalCenter">
               <li class="col-5-12 cell-27">
                 <div class="fix-4-12">
-                  <ul class="slider clickable ae-1 fromAbove" data-slider-id="27-2">
-                    <li class="selected"><img src="assets/img/Trashcampic1.png" alt="Apple Watch Thumbnail" /></li>
-                    <li><img src="assets/img/Trashcampic2.png" alt="Apple Watch Thumbnail" /></li>
-                    <li><img src="assets/img/watch-26-2.png" alt="Apple Watch Thumbnail" /></li>
-                    <li><img src="assets/img/watch-26-1.png" alt="Apple Watch Thumbnail" /></li>
-                  </ul>
-                  <ul class="controller dots ae-2 fromCenter margin-top-3" data-slider-id="27-2">
-                    <li class="dot selected"></li>
-                    <li class="dot"></li>
-                    <li class="dot"></li>
-                    <li class="dot"></li>
-                  </ul>
+                  <div id="container">
+                    <video autoplay="true" id="videoElement">
+
+                    </video>
+                  </div>
+                  <script>
+                    var video = document.querySelector("#videoElement");
+
+                    if (navigator.mediaDevices.getUserMedia) {
+                      navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function (stream) {
+                          video.srcObject = stream;
+                        })
+                        .catch(function (err0r) {
+                          console.log("Something went wrong!");
+                        });
+                    }
+                  </script>
+
                 </div>
               </li>
               <li class="col-7-12 left">
                 <h1 class="ae-2 fromRight">Trashcam</h1>
                 <div class="ae-3 fromRight">
-                  <p class="opacity-8">Trashcamera or Trashcam in short is the webcam ability to detect the trash in the
-                    area.</p>
+                  <p class="opacity-8">Trashcamera allows you to get a live view of the surrounding, helping you collect
+                    data in real time. </p>
                 </div>
                 <div class="relative">
                   <img src="assets/img/icon-2.png" class="ae-3 fromCenter app-26" alt="app" />
                   <div class="text-26">
                     <h3 class="ae-3 fromRight">Trashcam</h3>
                     <div class="ae-5 fromRight">
-                      <p class="tiny opacity-6">People don&rsquo;t use a product<br>because of the great&nbsp;design.
+                      <p class="tiny opacity-6">Click here to start live recording
                       </p>
                     </div>
                   </div>
@@ -700,43 +616,44 @@
 
           <div class="fix-6-12">
             <h1 class="huge ae-1 margin-bottom-2">Leaderboard</h1>
-            <p class="hero ae-2 margin-bottom-3"><span class="opacity-8">Be the change that inspires to change</span></p>
+            <p class="hero ae-2 margin-bottom-3"><span class="opacity-8">Be the change that inspires to change</span>
+            </p>
           </div>
 
           <div class="box3">
             <h1>Leaderboard</h1>
-          <table>
+            <table>
               <caption>You guys are the real heroes</caption>
               <tr>
-                  <th>User</th>
-                  <th>Points</th>
+                <th>User</th>
+                <th>Points</th>
               </tr>
               <tr>
-                  <td>John</td>
-                  <td>100</td>
+                <td>John</td>
+                <td>100</td>
               </tr>
               <tr>
-                  <td>Jane</td>
-                  <td>200</td>
+                <td>Jane</td>
+                <td>200</td>
               </tr>
               <tr>
-                  <td>Jack</td>
-                  <td>300</td>
+                <td>Jack</td>
+                <td>300</td>
               </tr>
               <tr>
-                  <td>Jill</td>
-                  <td>400</td>
+                <td>Jill</td>
+                <td>400</td>
               </tr>
               <tr>
-                  <td>Joe</td>
-                  <td>500</td>
+                <td>Joe</td>
+                <td>500</td>
               </tr>
               <tr>
-                  <td>Jojo</td>
-                  <td>400</td>
+                <td>Jojo</td>
+                <td>400</td>
               </tr>
-          </table>
-        </div>
+            </table>
+          </div>
 
         </div>
       </div>
