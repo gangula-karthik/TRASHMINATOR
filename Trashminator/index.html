@@ -354,9 +354,9 @@
 
                 <div class="upload_file_section" style="position: absolute; left: 50%;top: 30%;">
                   <h3>Preview your video over here</h3>
-                  <!-- <video id="video_preview" width="320" height="240" controls>
-                    <source src="assets/video/video.mp4" type="video/mp4">
-                  </video> -->
+                  <video id="myVideo" width="350" height="260" loop autoplay muted>
+                    <source src="trashminator_output.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
             </div>
@@ -377,10 +377,6 @@
                 navbar.style.pointerEvents = 'auto';
               }
 
-              // const video = document.getElementById('video_preview');
-              // video.src = '/Users/karthik/Documents/GitHub/Codeoverflow_nyp/sample_video.mp4';
-              // video.play();
-
               function close_popup() {
                 const modal = document.querySelector('.upload_modal');
                 const modal_container = document.querySelector('.modal_container');
@@ -399,7 +395,7 @@
               </div>
               <div class="card_body">
                 <h1>Changi Beach Park</h1>
-                <ol id="list_">
+                <ol style="font-size: 15px;">
                   <li>Trash level: 45%</li>
                   <li>Points: 70xp</li>
                   <li>Participants: 15</li>
@@ -418,7 +414,7 @@
               </div>
               <div class="card_body">
                 <h1>Pasir Ris Beach</h1>
-                <ol>
+                <ol style="font-size: 15px;">
                   <li>Trash level: 75%</li>
                   <li>Points: 110xp</li>
                   <li>Participants: 17</li>
@@ -438,7 +434,7 @@
               </div>
               <div class="card_body">
                 <h1>Ang Mo Kio Bishan Park</h1>
-                <ol>
+                <ol style="font-size: 15px;">
                   <li>Trash level: 25%</li>
                   <li>Points: 20xp</li>
                   <li>Participants: 7</li>
@@ -703,17 +699,44 @@
         <div class="wrap">
 
           <div class="fix-6-12">
-            <h1 class="huge ae-1 margin-bottom-2">Download Mobile App</h1>
-            <p class="hero ae-2 margin-bottom-3"><span class="opacity-8">Learning never exhausts the mind.</span></p>
-
-            <form action="#" autocomplete="off" class="slides-form margin-bottom-3">
-              <input type="email" class="ae-3" name="email" placeholder="E-mail address" />
-              <button type="submit" class="button blue gradient ae-4" name="submit">Try it free</button>
-            </form>
-
-            <a href="#" class="button hollow ae-5"><img src="assets/img/appstore.jpg" height="63" /></a><a href="#"
-              class="button hollow ae-6"><img src="assets/img/googleplay.jpg" height="63" /></a>
+            <h1 class="huge ae-1 margin-bottom-2">Leaderboard</h1>
+            <p class="hero ae-2 margin-bottom-3"><span class="opacity-8">Be the change that inspires to change</span></p>
           </div>
+
+          <div class="box3">
+            <h1>Leaderboard</h1>
+          <table>
+              <caption>You guys are the real heroes</caption>
+              <tr>
+                  <th>User</th>
+                  <th>Points</th>
+              </tr>
+              <tr>
+                  <td>John</td>
+                  <td>100</td>
+              </tr>
+              <tr>
+                  <td>Jane</td>
+                  <td>200</td>
+              </tr>
+              <tr>
+                  <td>Jack</td>
+                  <td>300</td>
+              </tr>
+              <tr>
+                  <td>Jill</td>
+                  <td>400</td>
+              </tr>
+              <tr>
+                  <td>Joe</td>
+                  <td>500</td>
+              </tr>
+              <tr>
+                  <td>Jojo</td>
+                  <td>400</td>
+              </tr>
+          </table>
+        </div>
 
         </div>
       </div>
