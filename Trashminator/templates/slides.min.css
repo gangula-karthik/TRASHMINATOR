@@ -24,6 +24,12 @@ html {
     transform: scale(1.3); 
 }
 
+#cam_text{
+    position: relative;
+    margin-right: 300px;
+}
+
+
 
 .dialog,
 body,

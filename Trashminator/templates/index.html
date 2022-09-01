@@ -5,8 +5,8 @@
 <script src="https://kit.fontawesome.com/0cdc6dc863.js" crossorigin="anonymous"></script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/Login_page.css">
-<link href="css/slides.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="Login_page.css">
+<link href="slides.min.css" rel="stylesheet" type="text/css">
 <link
   href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Libre+Baskerville&family=Playfair+Display&display=swap"
   rel="stylesheet">
@@ -22,7 +22,7 @@
   <title>Trashminator</title>
 
   <!-- Compressed Styles -->
-  <link href="css/slides.min.css" rel="stylesheet" type="text/css">
+  <link href="slides.min.css" rel="stylesheet" type="text/css">
 
   <!-- jQuery 3.3.1 -->
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
@@ -220,7 +220,6 @@
 
   </svg>
 
-  <!-- Panel Top #05 -->
   <nav class="panel top">
     <div class="sections desktop">
       <div class="left">
@@ -231,15 +230,15 @@
       <div class="center">
         <ul class="menu">
           <li><a href="#">Home</a></li>
-          <li><a href="#videos">Videos</a></li>
-          <li><a href="#Trashcam">Trashcam</a></li>
-          <li><a href="#case">Case study</a></li>
-          <li><a href="#Donations">Donations</a></li>
-          <li><a href="Download_page.html">Download</a></li>
+          <li><a href="index.html#videos">Videos</a></li>
+          <li><a href="index.html#Trashcam">Trashcam</a></li>
+          <li><a href="index.html#case">Case study</a></li>
+          <li><a href="index.html#Donations">Donations</a></li>
+          <li><a href="index.html#Leaderboard">Leaderboard</a></li>
         </ul>
       </div>
-      <div class="right"><a class="button blue gradient" href="Login_page.html">Login</a><a class="button green gradient"
-          href="#download">Get App</a></div>
+      <div class="right"><a class="button blue gradient" href="Login_page.html">Login</a><a
+          class="button green gradient" href="Download_page.html">Get App</a></div>
     </div>
     <div class="sections compact hidden">
       <div class="left">
@@ -259,16 +258,16 @@
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use>
       </svg></div>
     <div class="content">
-      <a href="#" class="logo"><svg width="37" height="30">
+      <a href="index.html#" class="logo"><svg width="37" height="30">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logo-icon"></use>
         </svg></a>
       <ul class="mainMenu margin-top-3">
-        <li><a href="#">Home</a></li>
-        <li><a href="#videos">Videos</a></li>
-        <li><a href="#Trashcam">Trashcam</a></li>
-        <li><a href="#case">Case study</a></li>
-        <li><a href="#Donations">Donations</a></li>
-        <li><a href="#download">Download</a></li>
+        <li><a href="index.html#">Home</a></li>
+        <li><a href="index.html#videos">Videos</a></li>
+        <li><a href="index.html#Trashcam">Trashcam</a></li>
+        <li><a href="index.html#case">Case study</a></li>
+        <li><a href="index.html#Donations">Donations</a></li>
+        <li><a href="index.html#Leaderboard">Leaderboard</a></li>
       </ul>
       <ul class="subMenu small opacity-8">
         <li><a href="#">Submit Product</a></li>
@@ -291,167 +290,372 @@
       </ul>
     </div>
   </nav>
+  <!-- Slide 1 (#34) -->
+  <section class="slide fade-6 kenBurns">
+    <div class="content">
+      <div class="container">
+        <div class="wrap">
 
-  <!-- Login Page (#95) -->
- <section class="slide fade-6 kenBurns" data-name="Login">
-   <div class="content">
-     <div class="container">
-       <div class="wrap">
-         <div class="wrapper-config">
-           <div class="wrapper">
-             <div class="title-text">
-               <div class="title login">Login Form</div>
-               <div class="title signup">Signup Form</div>
-             </div>
-             <div class="form-container">
-               <div class="slide-controls">
-                 <input type="radio" name="slider" id="login" checked>
-                 <input type="radio" name="slider" id="signup">
-                 <label for="login" class="myslide login">Login</label>
-                 <label for="signup" class="myslide signup">Signup</label>
-                 <div class="slide-tab"></div>
-               </div>
-               <div class="form-inner">
-                 <form action="#" class="login">
-                   <div class="field">
-                     <input type="text" placeholder="Username" required>
-                   </div>
-                   <div class="field">
-                     <input type="password" placeholder="Password" required>
-                   </div>
-                   <div class="pass-link"><a href="#"><br>Forgot password?<br></a></div>
-                   <div class="field">
-                     <input type="submit" value="Login">
-                   </div>
-                   <div class="signup-link">Not a member? <a href="#">Signup now</a></div>
-                 </form>
-                 <form class="signup">
-                   <div class="field">
-                     <input type="text" placeholder="User" required>
-                   </div>
-                   <div class="field">
-                     <input type="email" placeholder="Email Address" required>
-                   </div>
-                   <div class="field">
-                     <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="psw"
-                       placeholder="Password" required>
-                   </div>
-                   <div id="message">
-                     <h3>Password must contain the following:</h3>
-                     <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                     <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                     <p id="number" class="invalid">A <b>number</b></p>
-                     <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                   </div>
-                   <div class="field">
-                     <input type="password" id="cfmpass" placeholder="Confirm Password" onchange="matchPassword()"
-                       required>
-                   </div>
-                   <div class="field">
-                     <input onclick="signup()" type="submit" value="Signup">
-                   </div>
-                 </form>
-               </div>
-             </div>
-           </div>
-         </div>
-         <script>
-           function matchPassword() {
-             var pw1 = document.getElementById("psw");
-             var pw2 = document.getElementById("cfmpass");
-             if (pw1 != pw2) {
-               alert("Passwords did not match");
-             } else {
-               alert("Password created successfully");
-             }
-           }
-         </script>
-         <script>
-           var myInput = document.getElementById("psw");
-           var letter = document.getElementById("letter");
-           var capital = document.getElementById("capital");
-           var number = document.getElementById("number");
-           var length = document.getElementById("length");
+          <div class="fix-12-12">
+            <ul class="flex fixedSpaces verticalCenter reverse">
+              <li class="col-6-12 left middle">
+                <h1 class="ae-1 fromLeft">Let's save the planet together</h1>
+                <p class="ae-2 fromLeft"><span class="opacity-8">More than 7,700 cases of high-rise littering were
+                    reported between 2016 and last year to the National Environment Agency (NEA). With your help we can
+                    save the planet. </span></p>
+                <a href="#videos" class="button blue gradient ae-3 fromCenter cropLeft">Get Started</a><a
+                  href="#case"class="button white ae-4 fromCenter">Learn more</a>
+              </li>
+              <li class="col-6-12">
+                <img class="ae-4" width="1005px" height="400px" src="assets/img/Trashcoll2.png" alt="iPhones Thumbnail"
+                  data-action="zoom" />
+              </li>
+            </ul>
+          </div>
 
-           // When the user clicks on the password field, show the message box
-           myInput.onfocus = function () {
-             document.getElementById("message").style.display = "block";
-           }
+        </div>
+      </div>
+    </div>
+    <div class="background" style="background-image:url(assets/img/background/img-34.jpg)"></div>
+  </section>
 
-           // When the user clicks outside of the password field, hide the message box
-           myInput.onblur = function () {
-             document.getElementById("message").style.display = "none";
-           }
+  <!-- Slide 2 (#60) -->
+  <section class="slide fade-6 kenBurns" data-name="videos">
+    <div class="content">
+      <div class="container">
+        <div class="wrap ">
+          <div class="fix-12-12 restaurant_cards">
+            <h1 id="heading_clean_up_locations">Clean Up Locations</h1>
 
-           // When the user starts to type something inside the password field
-           myInput.onkeyup = function () {
-             // Validate lowercase letters
-             var lowerCaseLetters = /[a-z]/g;
-             if (myInput.value.match(lowerCaseLetters)) {
-               letter.classList.remove("invalid");
-               letter.classList.add("valid");
-             } else {
-               letter.classList.remove("valid");
-               letter.classList.add("invalid");
-             }
+            <div class="upload_option">
+              <h1>Start a Clean Up Event, Save the World</h1>
+              <a onclick='return show_popup()'><span>Upload <i class="fa-solid fa-plus"></i></span></a>
+            </div>
 
-             // Validate capital letters
-             var upperCaseLetters = /[A-Z]/g;
-             if (myInput.value.match(upperCaseLetters)) {
-               capital.classList.remove("invalid");
-               capital.classList.add("valid");
-             } else {
-               capital.classList.remove("valid");
-               capital.classList.add("invalid");
-             }
+            <div class="modal_container">
+              <div class="upload_modal">
+                <div style="position: relative;">
+                  <h1>Upload a video</h1>
+                  <a onclick='return close_popup()'><span class="dot_circle_close"><i
+                        class="fa-solid fa-xmark fa-xl"></i></span></a>
+                </div>
 
-             // Validate numbers
-             var numbers = /[0-9]/g;
-             if (myInput.value.match(numbers)) {
-               number.classList.remove("invalid");
-               number.classList.add("valid");
-             } else {
-               number.classList.remove("valid");
-               number.classList.add("invalid");
-             }
+                <div class="upload_file_section" style="position: absolute; top: 30%;">
+                  <h3>Upload your files here and we will do the rest</h3>
+                  <lord-icon src="https://cdn.lordicon.com/btnwcdpq.json" trigger="hover"
+                    style="width:200px;height:200px">
+                  </lord-icon>
+                  <form action="http://localhost:5000/uploader" method="POST" enctype="multipart/form-data">
+                    <input type="file" id="file_upload" class="center-block-input" name="file_upload"
+                      accept="video/*" />
+                    <input type="submit" value="Upload" class="center-block-input" />
+                  </form>
+                </div>
 
-             // Validate length
-             if (myInput.value.length >= 8) {
-               length.classList.remove("invalid");
-               length.classList.add("valid");
-             } else {
-               length.classList.remove("valid");
-               length.classList.add("invalid");
-             }
-           }
-         </script>
+                <div class="upload_file_section" style="position: absolute; left: 50%;top: 30%;">
+                  <h3>Preview your video over here</h3>
+                  <video id="myVideo" width="350" height="260" loop autoplay muted>
+                    <source src="trashminator_output.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
 
-         <script>
-           const loginForm = document.querySelector("form.login");
-           const signupForm = document.querySelector("form.signup");
-           const loginBtn = document.querySelector("label.login");
-           const signupBtn = document.querySelector("label.signup");
-           const signupLink = document.querySelector(".signup-link a");
-           const loginText = document.querySelector(".title-text .login");
-           const signupText = document.querySelector(".title-text .signup");
-           signupBtn.onclick = (() => {
-             loginForm.style.marginLeft = "-50%";
-             loginText.style.marginLeft = "-50%";
-           });
-           loginBtn.onclick = (() => {
-             loginForm.style.marginLeft = "0%";
-             loginText.style.marginLeft = "0%";
-           });
-           signupLink.onclick = (() => {
-             signupBtn.click();
-             return false;
-           });
-         </script>
-       </div>
-     </div>
-   </div>
-   <div class="background" style="background-image:url(assets/img/background/Seawallpaper.jpg)"></div>
- </section>
+
+            <script>
+              function show_popup() {
+                const modal = document.querySelector('.upload_modal');
+                modal.style.display = "block";
+                modal.style.animation = "myfade .3s ease-in-out";
+                modal.style.pointerEvents = 'auto';
+                const modal_container = document.querySelector('.modal_container');
+                modal_container.style.display = "block";
+                const body = document.querySelector('body');
+                body.style.pointerEvents = 'none';
+                body.style.overflow = "hidden";
+                const navbar = document.querySelector('.navbar');
+                navbar.style.pointerEvents = 'auto';
+              }
+
+              function close_popup() {
+                const modal = document.querySelector('.upload_modal');
+                const modal_container = document.querySelector('.modal_container');
+                modal.style.animation = "fadeOut 0.5s ease-in-out";
+                const body = document.querySelector('body');
+                modal.style.pointerEvents = 'none';
+                modal_container.style.display = "none";
+                body.style.pointerEvents = 'auto';
+                body.style.overflow = "scroll";
+              }
+            </script>
+
+            <div class="dining_card card_shadow">
+              <div class="card_header card_image">
+                <img src="assets/img/changi_beach.png" alt="changi beach" />
+              </div>
+              <div class="card_body">
+                <h1>Changi Beach Park</h1>
+                <ol style="font-size: 15px;">
+                  <li>Trash level: 45%</li>
+                  <li>Points: 70xp</li>
+                  <li>Participants: 15</li>
+                </ol>
+                <br>
+              </div>
+              <div class="card_footer">
+                <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
+                <a id="button_cleanup"
+                  href="https://www.google.com/maps/place/Changi+Beach+Park/@1.3909433,103.9745459,15z/data=!4m9!1m2!2m1!1schangi+beach!3m5!1s0x31da3c0b63da3653:0xe8220a55468c725c!8m2!3d1.3909433!4d103.9920554!15sCgxjaGFuZ2kgYmVhY2haDiIMY2hhbmdpIGJlYWNokgEEcGFya5oBJENoZERTVWhOTUc5blMwVkpRMEZuU1VOdkxYRk1Uak5uUlJBQuABAA"><span
+                    class="reservation_button">DIRECTIONS</span></a>
+              </div>
+            </div>
+
+            <div class="dining_card card_shadow">
+              <div class="card_header card_image">
+                <img src="assets/img/pasir_ris_beach.png" alt="La Maison" />
+              </div>
+              <div class="card_body">
+                <h1>Pasir Ris Beach</h1>
+                <ol style="font-size: 15px;">
+                  <li>Trash level: 75%</li>
+                  <li>Points: 110xp</li>
+                  <li>Participants: 17</li>
+                </ol>
+                <br>
+              </div>
+
+              <div class="card_footer">
+                <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
+                <a id="button_cleanup"
+                  href="https://www.google.com/maps/place/Pasir+Ris+Beach/@1.3849999,103.9367794,15z/data=!3m1!4b1!4m5!3m4!1s0x31da3dc6e52e0973:0x9e7632e11945da6b!8m2!3d1.385!4d103.9455556"><span
+                    class="reservation_button">DIRECTIONS</span></a>
+              </div>
+            </div>
+
+            <div class="dining_card card_shadow">
+              <div class="card_header card_image">
+                <img src="assets/img/amk_bishan.png" alt="Ang Mo Kio Bishan Park" />
+              </div>
+              <div class="card_body">
+                <h1>Ang Mo Kio Bishan Park</h1>
+                <ol style="font-size: 15px;">
+                  <li>Trash level: 25%</li>
+                  <li>Points: 20xp</li>
+                  <li>Participants: 7</li>
+                </ol>
+                <br>
+              </div>
+              <div class="card_footer">
+                <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
+                <a id="button_cleanup"
+                  href="https://www.google.com/maps/place/Bishan-Ang+Mo+Kio+Park/@1.3634088,103.8413674,17z/data=!3m1!4b1!4m5!3m4!1s0x31da1720c0e3288f:0x7de130104fef81c5!8m2!3d1.3634088!4d103.8435614"><span
+                    class="reservation_button">DIRECTIONS</span></a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="background" style="background-image:url(assets/img/background/img-60.jpg)"></div>
+  </section>
+
+
+  <!-- Slide 3 (#27) -->
+  <section class="slide fade-6 kenBurns" data-name="Trashcam">
+    <div class="content">
+      <div class="container">
+        <div class="wrap">
+
+          <div class="fix-12-12">
+            <ul class="flex verticalCenter">
+              <li class="col-5-12 cell-27">
+                <div class="fix-4-12">
+                  <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8  offset-lg-2">
+                            <h3 class="mt-5">Live Streaming</h3>
+                            <img src="{{http://192.168.18.4:2204/video_feed}}" width="100%">
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+              </li>
+              <li class="col-7-12 left">
+                <h1 class="ae-2 fromRight">Trashcam</h1>
+                <div class="ae-3 fromRight">
+                  <p class="opacity-8">Trashcamera allows you to get a live view of the surrounding, helping you collect
+                    data in real time. </p>
+                </div>
+                <div class="relative">
+                  <img src="assets/img/icon-2.png" id="cam_button" class="ae-3 fromCenter app-26" alt="app"
+                    onclick="webcam_trashcam();" />
+                  <div class="text-26">
+                    <div class="ae-5 fromRight">
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="background" style="background-image:url(assets/img/background/Mountain.jpg)"></div>
+  </section>
+
+
+  <!-- Slide 5 (#91) -->
+  <section class="slide fade-6 kenBurns" data-name="case">
+    <div class="content">
+      <div class="container">
+        <div class="wrap">
+
+          <div class="fix-12-12 toCenter">
+            <div class="fix-7-12">
+              <p class="margin-bottom-2 ae-1"><span class="opacity-6">Our mission</p>
+              <h1 class="ae-2 huge fromAbove margin-bottom-2">To help humanity thrive by enabling everyone to work
+                together collectively.</h1>
+              <a href="#" class="button green gradient ae-3">Purchase</a>
+            </div>
+            <ul class="grid fixedSpaces left margin-top-10">
+              <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-4 fromLeft">
+                <h3>Inspiration</h3>
+                <p class="tiny opacity-6">We live in a society where everybody feels guilty.</p>
+              </li>
+              <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-5 fromLeft">
+                <h3>Vision</h3>
+                <p class="tiny opacity-6">Help to combat climate change</p>
+              </li>
+              <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-6 fromLeft">
+                <h3>Strategy</h3>
+                <p class="tiny opacity-6">There is no such thing as simple. Simple is hard. Use Trashminator.</p>
+              </li>
+              <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-7 fromLeft">
+                <h3>Goals</h3>
+                <p class="tiny opacity-6">Strengthen implementation plans and revive global cooperation for sustainable
+                  development.</p>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="background" style="background-image:url(assets/img/background/img-91.jpg)"></div>
+  </section>
+
+  <!-- Slide 6 (#83) -->
+  <section class="slide fade-6 kenBurns" data-name="Donations">
+    <div class="content">
+      <div class="container">
+        <div class="wrap">
+
+          <div class="fix-10-12">
+            <h1 class="ae-1">Donations Plan</h1>
+            <ul class="grid grid-83 noSpaces equal ae-2 fadeIn">
+              <li class="col-4-12 ae-3" style="background: #F5FBFE">
+                <h3>Donate</h3>
+                <div class="price ae-5"><span class="currency">$</span>1</div>
+                <div class="ae-5">
+                  <h6 class="uppercase bold small opacity-4">Monthly Subscription</hh6>
+                </div>
+                <div class="margin-top-3 margin-bottom-3 equalElement ae-6">
+                  <ul class="p tiny">
+
+                  </ul>
+                </div>
+                <a href="#" class="button green gradient wide cropSides cropBottom ae-8">Donate</a>
+              </li>
+              <li class="col-4-12 ae-4">
+                <h3>Donate</h3>
+                <div class="price ae-6"><span class="currency">$</span>5</div>
+                <div class="ae-6">
+                  <h6 class="uppercase bold small opacity-4">Monthly Subscription</h6>
+                </div>
+                <div class="margin-top-3 margin-bottom-3 equalElement ae-7">
+                  <ul class="p tiny">
+                  </ul>
+                </div>
+                <a href="#" class="button green gradient wide cropSides cropBottom ae-8">Donate</a>
+              </li>
+              <li class="col-4-12 ae-5">
+                <h3>Donate</h3>
+                <div class="price ae-7"><span class="currency">$</span>24</div>
+                <div class="ae-7">
+                  <h6 class="uppercase bold small opacity-4">Monthly Subscription</h6>
+                </div>
+                <div class="margin-top-3 margin-bottom-3 equalElement ae-8">
+                  <ul class="p tiny">
+
+                  </ul>
+                </div>
+                <a href="#" class="button green gradient wide cropSides cropBottom ae-9">Donate</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="background" style="background-image:url(assets/img/background/img-83.jpg)"></div>
+  </section>
+
+  <!-- Slide 7 (#95) -->
+  <section class="slide fade-6 kenBurns" id="appdownload" data-name="Leaderboard">
+    <div class="content">
+      <div class="container">
+        <div class="wrap">
+
+          <div class="fix-6-12">
+            <h1 class="huge ae-1 margin-bottom-2">Leaderboard</h1>
+            <p class="hero ae-2 margin-bottom-3"><span class="opacity-8">Be the change that inspires to change</span>
+            </p>
+          </div>
+
+          <div class="box3">
+            <h1>Leaderboard</h1>
+            <table>
+              <caption>You guys are the real heroes</caption>
+              <tr>
+                <th>User</th>
+                <th>Points</th>
+              </tr>
+              <tr>
+                <td>John</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Jane</td>
+                <td>200</td>
+              </tr>
+              <tr>
+                <td>Jack</td>
+                <td>300</td>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>400</td>
+              </tr>
+              <tr>
+                <td>Joe</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>Jojo</td>
+                <td>400</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="background" style="background-image:url(assets/img/background/grenhill.jpg)"></div>
+  </section>
 
 
   <!-- Panel Bottom #01 -->
