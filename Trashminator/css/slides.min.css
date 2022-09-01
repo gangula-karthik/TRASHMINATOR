@@ -14,6 +14,15 @@ html {
     top: 30%;
 }
 
+#cam_button{
+    transition: transform .5s ease-in-out;
+}
+
+#cam_button:hover{
+    -ms-transform: scale(1.3); /* IE 9 */
+    -webkit-transform: scale(1.3); /* Safari 3-8 */
+    transform: scale(1.3); 
+}
 
 
 .dialog,

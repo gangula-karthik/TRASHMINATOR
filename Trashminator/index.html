@@ -7,6 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/Login_page.css">
 <link href="css/slides.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 <link
   href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Libre+Baskerville&family=Playfair+Display&display=swap"
   rel="stylesheet">
@@ -404,7 +406,9 @@
               </div>
               <div class="card_footer">
                 <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
-                <a id="button_cleanup" href="https://www.google.com/maps/place/Changi+Beach+Park/@1.3909433,103.9745459,15z/data=!4m9!1m2!2m1!1schangi+beach!3m5!1s0x31da3c0b63da3653:0xe8220a55468c725c!8m2!3d1.3909433!4d103.9920554!15sCgxjaGFuZ2kgYmVhY2haDiIMY2hhbmdpIGJlYWNokgEEcGFya5oBJENoZERTVWhOTUc5blMwVkpRMEZuU1VOdkxYRk1Uak5uUlJBQuABAA"><span class="reservation_button">DIRECTIONS</span></a>
+                <a id="button_cleanup"
+                  href="https://www.google.com/maps/place/Changi+Beach+Park/@1.3909433,103.9745459,15z/data=!4m9!1m2!2m1!1schangi+beach!3m5!1s0x31da3c0b63da3653:0xe8220a55468c725c!8m2!3d1.3909433!4d103.9920554!15sCgxjaGFuZ2kgYmVhY2haDiIMY2hhbmdpIGJlYWNokgEEcGFya5oBJENoZERTVWhOTUc5blMwVkpRMEZuU1VOdkxYRk1Uak5uUlJBQuABAA"><span
+                    class="reservation_button">DIRECTIONS</span></a>
               </div>
             </div>
 
@@ -424,7 +428,9 @@
 
               <div class="card_footer">
                 <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
-                <a id="button_cleanup" href="https://www.google.com/maps/place/Pasir+Ris+Beach/@1.3849999,103.9367794,15z/data=!3m1!4b1!4m5!3m4!1s0x31da3dc6e52e0973:0x9e7632e11945da6b!8m2!3d1.385!4d103.9455556"><span class="reservation_button">DIRECTIONS</span></a>
+                <a id="button_cleanup"
+                  href="https://www.google.com/maps/place/Pasir+Ris+Beach/@1.3849999,103.9367794,15z/data=!3m1!4b1!4m5!3m4!1s0x31da3dc6e52e0973:0x9e7632e11945da6b!8m2!3d1.385!4d103.9455556"><span
+                    class="reservation_button">DIRECTIONS</span></a>
               </div>
             </div>
 
@@ -443,7 +449,9 @@
               </div>
               <div class="card_footer">
                 <a id="button_cleanup" href="#"><span class="reservation_button">REGISTER</span></a>
-                <a id="button_cleanup" href="https://www.google.com/maps/place/Bishan-Ang+Mo+Kio+Park/@1.3634088,103.8413674,17z/data=!3m1!4b1!4m5!3m4!1s0x31da1720c0e3288f:0x7de130104fef81c5!8m2!3d1.3634088!4d103.8435614"><span class="reservation_button">DIRECTIONS</span></a>
+                <a id="button_cleanup"
+                  href="https://www.google.com/maps/place/Bishan-Ang+Mo+Kio+Park/@1.3634088,103.8413674,17z/data=!3m1!4b1!4m5!3m4!1s0x31da1720c0e3288f:0x7de130104fef81c5!8m2!3d1.3634088!4d103.8435614"><span
+                    class="reservation_button">DIRECTIONS</span></a>
               </div>
             </div>
 
@@ -468,20 +476,20 @@
                 <div class="fix-4-12">
                   <div id="container">
                     <video autoplay="true" id="videoElement">
-
                     </video>
                   </div>
+              
                   <script>
                     var video = document.querySelector("#videoElement");
-
-                    if (navigator.mediaDevices.getUserMedia) {
-                      navigator.mediaDevices.getUserMedia({ video: true })
-                        .then(function (stream) {
-                          video.srcObject = stream;
-                        })
-                        .catch(function (err0r) {
-                          console.log("Something went wrong!");
-                        });
+                    function webcam_trashcam() {
+                      var constraints = {
+                        video: {
+                          facingMode: "environment"
+                        }
+                      };
+                      navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+                        video.srcObject = stream;
+                      });
                     }
                   </script>
 
@@ -494,7 +502,8 @@
                     data in real time. </p>
                 </div>
                 <div class="relative">
-                  <img src="assets/img/icon-2.png" class="ae-3 fromCenter app-26" alt="app" />
+                  <img src="assets/img/icon-2.png" id="cam_button" class="ae-3 fromCenter app-26" alt="app"
+                    onclick="webcam_trashcam();" />
                   <div class="text-26">
                     <h3 class="ae-3 fromRight">Trashcam</h3>
                     <div class="ae-5 fromRight">
@@ -523,7 +532,8 @@
           <div class="fix-12-12 toCenter">
             <div class="fix-7-12">
               <p class="margin-bottom-2 ae-1"><span class="opacity-6">Our mission</p>
-              <h1 class="ae-2 huge fromAbove margin-bottom-2">To help humanity thrive by enabling everyone to work together collectively.</h1>
+              <h1 class="ae-2 huge fromAbove margin-bottom-2">To help humanity thrive by enabling everyone to work
+                together collectively.</h1>
               <a href="#" class="button green gradient ae-3">Purchase</a>
             </div>
             <ul class="grid fixedSpaces left margin-top-10">
@@ -541,7 +551,8 @@
               </li>
               <li class="col-3-12 col-tablet-1-2 col-phablet-1-1 ae-7 fromLeft">
                 <h3>Goals</h3>
-                <p class="tiny opacity-6">Strengthen implementation plans and revive global cooperation for sustainable development.</p>
+                <p class="tiny opacity-6">Strengthen implementation plans and revive global cooperation for sustainable
+                  development.</p>
               </li>
             </ul>
           </div>
