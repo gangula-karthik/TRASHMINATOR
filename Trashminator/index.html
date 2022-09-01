@@ -22,7 +22,11 @@
   <title>Trashminator</title>
 
   <!-- Compressed Styles -->
+<<<<<<< HEAD
   <link href="slides.min.css" rel="stylesheet" type="text/css">
+=======
+  <link href="css/slides.min.css" rel="stylesheet" type="text/css">
+>>>>>>> eec9f73cf6d0166b269e01c683d9cc4877656cd7
 
   <!-- jQuery 3.3.1 -->
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
@@ -472,6 +476,7 @@
             <ul class="flex verticalCenter">
               <li class="col-5-12 cell-27">
                 <div class="fix-4-12">
+<<<<<<< HEAD
                   <div class="container">
                     <div class="row">
                         <div class="col-lg-8  offset-lg-2">
@@ -480,6 +485,26 @@
                         </div>
                     </div>
                 </div>
+=======
+                  <div id="container">
+                    <video autoplay="true" id="videoElement">
+                    </video>
+                  </div>
+
+                  <script>
+                    var video = document.querySelector("#videoElement");
+                    function webcam_trashcam() {
+                      var constraints = {
+                        video: {
+                          facingMode: "environment"
+                        }
+                      };
+                      navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+                        video.srcObject = stream;
+                      });
+                    }
+                  </script>
+>>>>>>> eec9f73cf6d0166b269e01c683d9cc4877656cd7
 
                 </div>
               </li>
@@ -493,7 +518,14 @@
                   <img src="assets/img/icon-2.png" id="cam_button" class="ae-3 fromCenter app-26" alt="app"
                     onclick="webcam_trashcam();" />
                   <div class="text-26">
+<<<<<<< HEAD
                     <div class="ae-5 fromRight">
+=======
+                    <h3 class="ae-3 fromRight">Trashcam</h3>
+                    <div class="ae-5 fromRight">
+                      <p class="tiny opacity-6">Click here to start live recording
+                      </p>
+>>>>>>> eec9f73cf6d0166b269e01c683d9cc4877656cd7
                     </div>
                   </div>
                 </div>
