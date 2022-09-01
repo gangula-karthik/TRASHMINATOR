@@ -1,117 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
-# get_ipython().system('git clone https://github.com/augmentedstartups/yolov7.git')
-# get_ipython().system('cd Trashminator/yolov7_files')
-# get_ipython().run_line_magic('pip', 'install -r requirements.txt')
-# get_ipython().run_line_magic('pip', 'install roboflow')
-
-
-# In[ ]:
-
-
-# get_ipython().system('cd Trashminator/yolov7_files')
-
-# from roboflow import Roboflow
-# rf = Roboflow(api_key="r0pIMR1W3kYScV2VBpqo")
-# project = rf.workspace("nam-nhat").project("trash-dvdrr")
-# dataset = project.version(5).download("yolov7")
-
-
-# In[ ]:
-
-
-# get_ipython().run_line_magic('cd', 'yolov7_files')
-# get_ipython().run_line_magic('pwd', '')
-
-# get_ipython().run_line_magic('cd', 'yolov7')
-# get_ipython().run_line_magic('pwd', '')
-
-
-# In[ ]:
-
-
-# get_ipython().run_cell_magic('bash', '', 'wget -P /Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/yolov7 https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt')
-
-
-# # In[ ]:
-
-
-# get_ipython().run_line_magic('pwd', '')
-
-
-# In[ ]:
-
-
-# get_ipython().system('python train.py --batch 16 --cfg /Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/yolov7/cfg/training/yolov7.yaml --epochs 55 --data /Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/yolov7/Trash-5/data.yaml --weights "yolov7.pt" --device 1')
-
-
-# In[ ]:
-
-
-# # Run evaluation
-# get_ipython().system('python detect.py --weights /Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/epoch_054.pt --conf 0.1 --source /Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/yolov7/Trash-5/test/images')
-
-
-# In[ ]:
-
-
-# #display inference on ALL test images
-
-# import glob
-# from IPython.display import Image, display
-
-# i = 0
-# limit = 10000 # max images to print
-# for imageName in glob.glob('/Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/yolov7/runs/detect/exp'):
-#     #Assuming JPG
-#     if i < limit:
-#       display(Image(filename=imageName))
-#       print("\n")
-#     i = i + 1
-
-
-# In[3]:
-
-
-# from IPython.display import Image
-# display(Image("/Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/yolov7/Trash-5/test/images/1_jpg.rf.95596861db3483c9f453296ddf305f68.jpg", width=200, height=100))
-
-
-# ## Inference on custom images
-
-# In[4]:
-
-
-classes_to_filter = None  #You can give list of classes to filter by name, Be happy you don't have to put class number. ['train','person' ]
-
-
-opt  = {
-    
-    "weights": "/Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/epoch_054.pt", # Path to weights file default weights are for nano model
-    "yaml"   : "Trash-5/data.yaml",
-    "img-size": 640, # default image size
-    "conf-thres": 0.25, # confidence threshold for inference.
-    "iou-thres" : 0.45, # NMS IoU threshold for inference.
-    "device" : 'cpu',  # device to run our model i.e. 0 or 0,1,2,3 or cpu
-    "classes" : classes_to_filter  # list of classes to filter or None
-    
-}
-
-
-# In[5]:
-
-
-#give the full path to video, your video will be in the Yolov7 folder
-# video_path = '/Users/karthik/Documents/GitHub/Codeoverflow_nyp/sample_video.mp4'
-
-
-# In[11]:
-
-
 import os
 import sys
 import seaborn as sns
@@ -130,6 +16,20 @@ from utils.datasets import LoadStreams, LoadImages
 from utils.general import check_img_size, check_requirements, check_imshow, non_max_suppression, apply_classifier, scale_coords, xyxy2xywh, strip_optimizer, set_logging, increment_path
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized, TracedModel
+
+classes_to_filter = None  #You can give list of classes to filter by name, Be happy you don't have to put class number. ['train','person' ]
+
+opt  = {
+    
+    "weights": "/Users/karthik/Documents/GitHub/Codeoverflow_nyp/Trashminator/yolov7_files/epoch_054.pt", # Path to weights file default weights are for nano model
+    "yaml"   : "Trash-5/data.yaml",
+    "img-size": 640, # default image size
+    "conf-thres": 0.25, # confidence threshold for inference.
+    "iou-thres" : 0.45, # NMS IoU threshold for inference.
+    "device" : 'cpu',  # device to run our model i.e. 0 or 0,1,2,3 or cpu
+    "classes" : classes_to_filter  # list of classes to filter or None
+    
+}
 
 
 def letterbox(img, new_shape=(640, 640), color=(114, 114, 114), auto=True, scaleFill=False, scaleup=True, stride=32):
@@ -167,7 +67,6 @@ def letterbox(img, new_shape=(640, 640), color=(114, 114, 114), auto=True, scale
 
 # ## Inference on videos
 
-# In[13]:
 
 
 def detectorTrash(video_path):
@@ -255,94 +154,3 @@ def detectorTrash(video_path):
 
 
 # detectorTrash('/Users/karthik/Documents/GitHub/Codeoverflow_nyp/sample_video.mp4')
-
-        
-
-
-# In[12]:
-
-
-
-# Initializing video object
-# video = cv2.VideoCapture(video_path)
-
-
-# # Video information
-# fps = video.get(cv2.CAP_PROP_FPS)
-# w = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
-# h = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
-# nframes = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
-
-# # Initialzing object for writing video output
-# output = cv2.VideoWriter('output.mp4', cv2.VideoWriter_fourcc(*'DIVX'),fps , (w,h))
-# torch.cuda.empty_cache()
-# # Initializing model and setting it for inference
-# with torch.no_grad():
-#   weights, imgsz = opt['weights'], opt['img-size']
-#   set_logging()
-#   device = select_device(opt['device'])
-#   half = device.type != 'cpu'
-#   model = attempt_load(weights, map_location=device)  # load FP32 model
-#   stride = int(model.stride.max())  # model stride
-#   imgsz = check_img_size(imgsz, s=stride)  # check img_size
-#   if half:
-#     model.half()
-
-#   names = model.module.names if hasattr(model, 'module') else model.names
-#   colors = [[random.randint(0, 255) for _ in range(3)] for _ in names]
-#   if device.type != 'cpu':
-#     model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))
-
-#   classes = None
-#   if opt['classes']:
-#     classes = []
-#     for class_name in opt['classes']:
-#       classes.append(opt['classes'].index(class_name))
-
-#   for j in range(nframes):
-
-#       ret, img0 = video.read()
-#       if ret:
-#         img = letterbox(img0, imgsz, stride=stride)[0]
-#         img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
-#         img = np.ascontiguousarray(img)
-#         img = torch.from_numpy(img).to(device)
-#         img = img.half() if half else img.float()  # uint8 to fp16/32
-#         img /= 255.0  # 0 - 255 to 0.0 - 1.0
-#         if img.ndimension() == 3:
-#           img = img.unsqueeze(0)
-
-#         # Inference
-#         t1 = time_synchronized()
-#         pred = model(img, augment= False)[0]
-
-        
-#         pred = non_max_suppression(pred, opt['conf-thres'], opt['iou-thres'], classes= classes, agnostic= False)
-#         t2 = time_synchronized()
-#         for i, det in enumerate(pred):
-#           s = ''
-#           s += '%gx%g ' % img.shape[2:]  # print string
-#           gn = torch.tensor(img0.shape)[[1, 0, 1, 0]]
-#           if len(det):
-#             det[:, :4] = scale_coords(img.shape[2:], det[:, :4], img0.shape).round()
-
-#             for c in det[:, -1].unique():
-#               n = (det[:, -1] == c).sum()  # detections per class
-#               s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
-    
-#             for *xyxy, conf, cls in reversed(det):
-
-#               label = f'{names[int(cls)]} {conf:.2f}'
-#               plot_one_box(xyxy, img0, label=label, color=colors[int(cls)], line_thickness=3)
-        
-#         print(f"{j+1}/{nframes} frames processed")
-#         output.write(img0)
-#       else:
-#         break
-    
-
-# output.release()
-# video.release()
-
-
-# # ## Inference on webcam

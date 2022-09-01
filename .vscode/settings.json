@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./yolov7_files"
+        "./yolov7_files",
+        "./Trashminator/yolov7_files"
     ]
 }
