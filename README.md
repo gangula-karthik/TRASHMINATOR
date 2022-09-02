@@ -22,7 +22,7 @@ Team members include:
    - added the text content on the webpages
    
    
-## What is Trashminator 💡
+## PROCESS 🤔
 1. The video is uploaded either by the user or taken from other sources like security cameras
 2. The video is then scanned to detect the amount of trash 
 3. The location is marked on a map and shown to the users who can then volunteer to help clean up the location
