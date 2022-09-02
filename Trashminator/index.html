@@ -358,6 +358,7 @@
                   <video id="myVideo" width="350" height="260" loop autoplay muted>
                     <source src="trashminator_output.mp4" type="video/mp4">
                   </video>
+                  <button onclick="confirmation();">SUBMIT</button>
                 </div>
               </div>
             </div>
@@ -376,6 +377,10 @@
                 body.style.overflow = "hidden";
                 const navbar = document.querySelector('.navbar');
                 navbar.style.pointerEvents = 'auto';
+              }
+
+              function confirmation(){
+                return alert("Your video has been uploaded successfully!");
               }
 
               function close_popup() {
