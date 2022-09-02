@@ -509,8 +509,14 @@
                 </div>
                 <div class="relative">
                   <img src="assets/img/icon-2.png" id="cam_button" class="ae-3 fromCenter app-26" alt="app"
-                    onclick="webcam_trashcam();" />
+                    onclick="opencam()"/>
                   <div class="text-26">
+
+                    <script>
+                      function opencam() {
+                        window.open("http://127.0.0.1:8000/");
+                      }
+                    </script>
 
                     <div class="ae-5 fromRight">
                     <h3 class="ae-3 fromRight">Trashcam</h3>

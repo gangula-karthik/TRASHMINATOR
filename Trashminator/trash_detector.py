@@ -153,4 +153,5 @@ def detectorTrash(video_path):
     return True
 
 
+
 # detectorTrash('/Users/karthik/Documents/GitHub/Codeoverflow_nyp/sample_video.mp4')
