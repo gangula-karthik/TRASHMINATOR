@@ -23,7 +23,4 @@ Team members include:
    
    
 ## PROCESS 🤔
-1. The video is uploaded either by the user or taken from other sources like security cameras
-2. The video is then scanned to detect the amount of trash 
-3. The location is marked on a map and shown to the users who can then volunteer to help clean up the location
-4. The users will in turn receive points for helping out and there is also a leaderboard which encourages users to clean up more
+Here's how it works: users can upload their own videos or source them from security cameras, which are then scanned to identify the amount of trash present. This location is marked on a map and made available to users who can volunteer to help clean it up. In return for their efforts, these users will earn points and rise up the leaderboard, inspiring them to keep making a positive impact on their community. It's a simple but powerful way to promote environmental responsibility and make a real difference.
