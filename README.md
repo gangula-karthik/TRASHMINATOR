@@ -27,4 +27,6 @@ Here's how it works: users can upload their own videos or source them from secur
 
 ## WANT TO TRY IT OUT ?
 Clone the repository by using the below command
-```git clone https://github.com/gangula-karthik/TRASHMINATOR.git```
+```
+git clone https://github.com/gangula-karthik/TRASHMINATOR.git
+```
